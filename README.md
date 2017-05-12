@@ -7,23 +7,24 @@ It's loosely based on the [Agency](http://startbootstrap.com/template-overviews/
 
 ### Requirements
 
-* [NPM](https://www.npmjs.com/): `# apt-get install npm`
-* [Gulp](http://gulpjs.com/): `# apt-get install gulp`
+| Software | Installation |
+| --- | --- | 
+| [NPM](https://www.npmjs.com/) | `# [apt-get\|yum] install npm` |
+| [Gulp](http://gulpjs.com/) | `# npm install gulp-cli` |
 
 ### Modifying
 
 To modify the source files, you'll need to:
 
 1. clone the `web_landing` branch of Sherlock repo on your local machine:
-```
-$ git clone https://github.com/stanford-rc/sherlock.git --branch shweb_landing --single-branch
-
-```
+   ```
+   $ git clone https://github.com/stanford-rc/sherlock.git --branch web_landing --single-branch
+   ```
 2. run `npm install` in the root directory
 3. run `gulp dev` 
 4. edit the files as needed: 
   * `index.html`: structure and contents
-  * `less/shweb.less`
+  * `less/shweb.less`: style
 
 To update the plugins: `npm update` 
 
