@@ -9,7 +9,8 @@ It's based on the [Mkdocs Material](http://squidfunk.github.io/mkdocs-material/)
 
 | Software | Installation |
 | --- | --- | 
-| [Yarn](http://squidfunk.github.io/mkdocs-material/) | `# [apt-get\|yum] install yarn` |
+| [Node.js](https://nodejs.org/en/) | `# [apt-get|yum] install nodejs` |
+| [Yarn](http://squidfunk.github.io/mkdocs-material/) | https://yarnpkg.com/en/docs/install |
 
 ### Modifying
 
@@ -24,13 +25,12 @@ To modify the source files, you'll need to:
   $ pip install -r requirements.txt
   $ yarn install
   ```
+
 3. run `yarn start`
  
 4. edit the files as needed: 
   * `index.html`: structure and contents
   * `less/shweb.less`: style
-
-To update the plugins: `npm update` 
 
 ### Building
 
