@@ -1,63 +1,44 @@
-[![Travis][travis-image]][travis-link]
-[![Gitter][gitter-image]][gitter-link]
-[![Codacy][codacy-image]][codacy-link]
-[![Docker][docker-image]][docker-link]
-[![PyPI][pypi-image]][pypi-link]
+# Sherlock documentation theme
 
-  [travis-image]: https://travis-ci.org/squidfunk/mkdocs-material.svg?branch=master
-  [travis-link]: https://travis-ci.org/squidfunk/mkdocs-material
-  [gitter-image]: https://img.shields.io/gitter/room/squidfunk/mkdocs-material.svg
-  [gitter-link]: https://gitter.im/squidfunk/mkdocs-material
-  [codacy-image]: https://api.codacy.com/project/badge/Grade/fe07aa1fa91d453cb69711d3885c5d7e
-  [codacy-link]: https://www.codacy.com/app/squidfunk/mkdocs-material?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=squidfunk/mkdocs-material&amp;utm_campaign=Badge_Grade
-  [docker-image]: https://img.shields.io/docker/automated/squidfunk/mkdocs-material.svg
-  [docker-link]: https://hub.docker.com/r/squidfunk/mkdocs-material/
-  [pypi-image]: https://img.shields.io/pypi/v/mkdocs-material.svg
-  [pypi-link]: https://pypi.python.org/pypi/mkdocs-material
+This branch of the Sherlock repository contains the source files necessary to build the Sherlock documentation theme for http://www.sherlock.stanford.edu/docs
+It's based on the [Mkdocs Material](http://squidfunk.github.io/mkdocs-material/) theme.
 
-# Material for MkDocs
+## Getting Started
 
-A Material Design theme for [MkDocs](http://www.mkdocs.org).
+### Requirements
 
-[![Material for MkDocs](docs/images/material.png)](http://squidfunk.github.io/mkdocs-material/)
+| Software | Installation |
+| --- | --- | 
+| [Yarn](http://squidfunk.github.io/mkdocs-material/) | `# [apt-get\|yum] install yarn` |
 
-## Quick start
+### Modifying
 
-Install with `pip`:
+To modify the source files, you'll need to:
 
-``` sh
-pip install mkdocs-material
-```
+1. clone the `web_theme` branch of Sherlock repo on your local machine:
+   ```
+   $ git clone https://github.com/stanford-rc/sherlock.git --branch web_theme --single-branch
+   ```
+2. install the required dependencies with:
+  ```
+  $ pip install -r requirements.txt
+  $ yarn install
+  ```
+3. run `yarn start`
+ 
+4. edit the files as needed: 
+  * `index.html`: structure and contents
+  * `less/shweb.less`: style
 
-Append the following line to your existing `mkdocs.yml`:
+To update the plugins: `npm update` 
 
-``` yaml
-theme: 'material'
-```
+### Building
 
-For detailed installation instructions and a demo, visit
-http://squidfunk.github.io/mkdocs-material/
+Once you're satisifed with the results, you can build the static files with: `yarn run build`
 
-## License
+### Deploying
 
-**MIT License**
+Deployment should happen automatically when a change is committed on GitHub.
 
-Copyright (c) 2016-2017 Martin Donath
+TBW
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
-IN THE SOFTWARE.
