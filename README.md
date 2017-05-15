@@ -15,6 +15,8 @@ The following steps are only required if a change if needed in the theme, or to 
 | [Node.js](https://nodejs.org/en/) | https://nodejs.org/en/download/ |
 | [Yarn](http://squidfunk.github.io/mkdocs-material/) | https://yarnpkg.com/en/docs/install |
 
+
+
 ### Modifying
 
 To modify the source files, you'll need to:
@@ -32,8 +34,22 @@ To modify the source files, you'll need to:
 3. run `yarn start`. This will start a development server at http://0.0.0.0:8000
  
 4. edit the files as needed, and Updates should automatically appear at http://0.0.0.0:8000
-  * `index.html`: structure and contents
-  * `less/shweb.less`: style
+   * `index.html`: structure and contents
+   * `less/shweb.less`: style
+
+
+#### Sync'ing with upstream
+
+To benefit from the changes and fixes from upstream, you'll need to configure a remote to the [upstream repository](https://github.com/squidfunk/mkdocs-material)
+```
+$ git remote add -t master theme_upstream https://github.com/squidfunk/mkdocs-material.git
+```
+
+Then you can get the changes and merge them with your current changes:
+```
+$ git fetch theme_upstream
+$ git merge theme_upstream/master
+```
     
   
 ### Building
