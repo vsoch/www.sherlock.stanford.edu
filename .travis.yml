@@ -1,0 +1,31 @@
+sudo: false
+language: python
+python: '2.7'
+
+cache:
+  	yarn: true
+  	directories:
+    	- node_modules
+
+before_install:
+    - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.24.5
+    - export PATH=$HOME/.yarn/bin:$PATH
+
+install: 
+    - pip install -r requirements.txt
+    - yarn install 
+
+script: yarn run build
+
+branches:
+  only:
+    - web_theme
+
+deploy:
+	- skip_cleanup: true
+
+after_success:
+    - git config user.name "Kilian Cavalotti"
+    - git config user.email "kilian@stanford.edu"
+    - git remote add gh-token "https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git";
+    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
