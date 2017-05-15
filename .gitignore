@@ -43,3 +43,10 @@
 # Distribution files
 /dist
 /mkdocs_material.egg-info
+
+
+### Local modifications
+# don't commit generated files
+/material
+# don't use upstream hooks
+/.githooks

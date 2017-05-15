@@ -192,6 +192,7 @@ Click on a tile to change the primary color of the theme:
 <button data-md-color-primary="brown">Brown</button>
 <button data-md-color-primary="grey">Grey</button>
 <button data-md-color-primary="blue-grey">Blue Grey</button>
+<button data-md-color-primary="stanford">Stanford</button>
 
 <script>
   var buttons = document.querySelectorAll("button[data-md-color-primary]");
@@ -222,6 +223,7 @@ Click on a tile to change the accent color of the theme:
 <button data-md-color-accent="amber">Amber</button>
 <button data-md-color-accent="orange">Orange</button>
 <button data-md-color-accent="deep-orange">Deep Orange</button>
+<button data-md-color-accent="stanford">Stanford</button>
 
 <script>
   var buttons = document.querySelectorAll("button[data-md-color-accent]");
