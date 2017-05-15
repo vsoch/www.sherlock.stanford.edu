@@ -24,10 +24,10 @@ To modify the source files, you'll need to:
    $ git clone https://github.com/stanford-rc/sherlock.git --branch web_theme --single-branch
    ```
 2. install the required dependencies with:
-  ```
-  $ pip install -r requirements.txt
-  $ yarn install
-  ```
+   ```
+   $ pip install -r requirements.txt
+   $ yarn install
+   ```
 
 3. run `yarn start`. This will start a development server at http://0.0.0.0:8000
  
