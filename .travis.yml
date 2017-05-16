@@ -1,23 +1,39 @@
 sudo: false
-language: python
-python: '2.7'
+language: node_js
 
-before_install:
-    - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 0.24.5
-    - export PATH=$HOME/.yarn/bin:$PATH
-
-install: 
-    - pip install -r requirements.txt
-    - yarn install 
-
-script: yarn run build
-
+# we only care about the web_theme branch
 branches:
     only:
         - web_theme
 
+# Node.js version
+node_js: 5
+
+# limit clone depth to 5, to speed up build
+git:
+    depth: 5
+
+# cache dependencies
+cache:
+	pip: true
+  	yarn: true
+  	directories:
+    	- node_modules
+
+# install yarn before anything else
+before_install:
+  	- npm install -g yarn@v0.22.0
+
+# install dependencies
+install:
+  	- yarn install --ignore-optional
+  	- pip install --user -r requirements.txt
+
+# build
+script: 
+	- yarn build
+
+# deploy
 after_success:
-    - git config user.name "Kilian Cavalotti"
-    - git config user.email "kilian@stanford.edu"
-    - git remote add gh-token "https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git";
-    - git fetch gh-token && git fetch gh-token gh-pages:gh-pages;
+    - script: ./sh_deploy.sh
+
