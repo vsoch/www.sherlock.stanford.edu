@@ -44,6 +44,7 @@ after_success:
      git fetch origin2
      git stash
      git checkout web_docs
+     git stash
      git checkout web_theme material/
      git add -A material/
      git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
