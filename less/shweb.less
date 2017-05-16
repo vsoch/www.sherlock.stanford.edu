@@ -186,7 +186,23 @@ h3.airy {
             border-radius: 3px;
         }
     }
+    .navbar-separator {
+        display: block;
+        position: relative;
+        top: 15px;
+        padding: 10px 0;
+        margin: 1px;
+        border-right: 1px solid lightgray;
+    }
 }
+
+// don't display navbar separators on small screens
+@media only screen and (max-width: 768px) {
+    .navbar-separator {
+        display: none;
+    }
+}
+
 
 // Navbar Change on Scroll
 

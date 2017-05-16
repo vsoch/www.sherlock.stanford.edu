@@ -239,6 +239,19 @@ fieldset[disabled] .btn-xl.active {
   .navbar-custom .navbar-nav > .active > a {
     border-radius: 3px;
   }
+  .navbar-separator {
+    display: block;
+    position: relative;
+    top: 15px;
+    padding: 10px 0;
+    margin: 1px;
+    border-right: 1px solid lightgray;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .navbar-separator {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .navbar-custom.affix {
