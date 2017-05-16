@@ -43,5 +43,7 @@ after_success:
       git checkout web_docs && \
       git checkout web_theme material/ && \
       git add -A material/ && \
-      git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7} \n\n\tTravis build: $TRAVIS_BUILD_NUMBER" && \
+      git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
+      
+      Travis build: $TRAVIS_BUILD_NUMBER" && \
       git push
