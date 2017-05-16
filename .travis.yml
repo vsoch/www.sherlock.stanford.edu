@@ -63,9 +63,9 @@ after_success:
      git remote add -t web_docs origin2 https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git
      git fetch origin2
      git checkout web_docs
-     git checkout web_landing build/
-	 mv build/* src/
-	 rmdir build
+     git checkout web_landing build
+     mv build/* src/
+     rmdir build
      git add -A src/
      git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
 
