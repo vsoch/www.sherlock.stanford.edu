@@ -15,23 +15,23 @@ git:
 
 # cache dependencies
 cache:
-	pip: true
-  	yarn: true
-  	directories:
-    	- node_modules
+    pip: true
+    yarn: true
+    directories:
+        - node_modules
 
 # install yarn before anything else
 before_install:
-  	- npm install -g yarn@v0.22.0
+    - npm install -g yarn@v0.22.0
 
 # install dependencies
 install:
-  	- yarn install --ignore-optional
-  	- pip install --user -r requirements.txt
+    - yarn install --ignore-optional
+    - pip install --user -r requirements.txt
 
 # build
 script: 
-	- yarn build
+    - yarn build
 
 # deploy
 after_success:
