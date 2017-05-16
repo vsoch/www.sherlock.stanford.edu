@@ -1,4 +1,5 @@
 # Sherlock documentation theme
+[![Build Status](https://travis-ci.com/stanford-rc/sherlock.svg?token=uginarQXUTdAZXLFvqnS&branch=web_theme)](https://travis-ci.com/stanford-rc/sherlock)
 
 This branch of the Sherlock repository contains the source files necessary to build the Sherlock documentation theme for http://www.sherlock.stanford.edu/docs
 It's based on the [Mkdocs Material](http://squidfunk.github.io/mkdocs-material/) theme.
@@ -15,6 +16,7 @@ The general idea is:
 
 ### Requirements
 Some software is required to build the theme:
+
 | Software | Installation |
 | --- | --- | 
 | [Node.js](https://nodejs.org/en/) | https://nodejs.org/en/download/ |
