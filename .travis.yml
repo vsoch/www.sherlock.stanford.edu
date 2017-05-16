@@ -1,3 +1,9 @@
+# ----------------------------------------------------------------------------
+#
+# config
+#
+# ---------------------------------------------------------------------------- 
+
 sudo: false
 language: node_js
 
@@ -5,6 +11,18 @@ language: node_js
 branches:
     only:
         - web_theme
+
+# notify srcc#github
+notifications:
+    slack:
+        secure: "5LH3JMgre8bvoyVXvZs/TF5oWUiAAUTiRrLJ9g+2D63QlXtDt82PCf/wnzx16xiIaNk26IzmEs5McvDSoAH2eaHxOBa20zlHqxnZiy0nqQTP1QT6yxVMBXt95FaEbvptqmsD60PovacY563o5Cmp0JfhdHuJAy/kE+oNkgzYbiuliLTx1qJAidIvKaEaglVMQG9UzKk+5mtW33K/a2EKMI8I45whmloEnBjHjkhAqBA93nn6l6f+HAfLSsVGjxL4p95Nvi/Te9q/4VTmPleZLQoXDTKF9/IaASu1wBEZPkF1R5/sdtYxsp9UZv/G63aPwBQ7ZvpzuRDU/Hs40R3LFUW2mbYgTPloUpOygnVRxFIpiVYFDQs/HvcILN2d21+9yCn0Kb2Xbqk1l43hh9I0VkSSRnJx6whPZ3yBepbJusQq0nQGe+VET8sL38zsCBc2d3DnEK1vYgwohe3tMEpu/BXFcL7+rHHQAj/+XOwsDZdRO+uGfL+Eb52286tsSxlA3BcM7TX2BGwdSAQOX+fJQ9QHRcN0oB3KUcXCydgEJwi7uVuU6LTcvdvb1oa7jdFqvNkdqOtHtom03gdsNxhK7d0rD+pKS0y0htR/mfcbMlreFfQ35fzX//C+QQI6lYioc/uPVutjJ5QZKwy4Bsf6yL90jeSNpzgb/NcTx/Y0BV4="
+
+
+# ----------------------------------------------------------------------------
+#
+# build
+#
+# ---------------------------------------------------------------------------- 
 
 # Node.js version
 node_js: 5
@@ -32,6 +50,13 @@ install:
 # build
 script: 
     - yarn build
+
+
+# ----------------------------------------------------------------------------
+#
+# deployment
+#
+# ---------------------------------------------------------------------------- 
 
 # deploy
 #   fetch web_docs and copy contents of material/ there, then commit and push
