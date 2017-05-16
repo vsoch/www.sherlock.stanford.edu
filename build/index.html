@@ -55,6 +55,21 @@
 	</script>
 	<script async src="//cdn.headwayapp.co/widget.js"></script>
 
+    <!-- Hund.io widget (Status page) - http://hund.io -->
+    <script src="https://libraries.hund.io/status-js/status-2.1.0.js">
+    <script>
+      var statusWidget = new Status.Widget({
+        hostname: "srcc-sherlock.hund.io",
+        selector: "#status",
+        debug: true,
+        display: {
+            hideOnError: false, // Hide the widget if a connection cannot be established
+            panePosition: "bottom-right", // One of "top-left", "top-right", "bottom-left", "bottom-right"
+            ledPosition: "left", // Either "left" or "right"
+        }
+      });
+    </script>
+
 	<!-- UserVoice widget -->
 	<script>
 	  // Include the UserVoice JavaScript SDK (only needed once on a page)
@@ -164,6 +179,8 @@
 		<div class="intro-heading">Sherlock</div>
                 <div class="intro-subtitle">The HPC cluster for all your computing needs at Stanford</div>
                 <div class="intro-content">Need to access computing resources to support your sponsored or departmental research? You may want to try out the Stanford Sherlock cluster! Purchased and supported with seed funding from the Provost, Sherlock is a shared computing cluster available for use by all Stanford faculty and their research teams.</div>
+
+                <div id="status"></div>
 
                 <a href="#services" class="page-scroll btn btn-xl">Really? Tell me more</a>
                 <a id="account_request1" href="" class="page-scroll btn btn-xl">Request an account</a>
