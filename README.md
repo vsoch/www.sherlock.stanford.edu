@@ -20,7 +20,7 @@ Some software is required to build the theme:
 | Software | Installation |
 | --- | --- | 
 | [Node.js](https://nodejs.org/en/) | https://nodejs.org/en/download/ |
-| [Yarn](http://squidfunk.github.io/mkdocs-material/) | https://yarnpkg.com/en/docs/install |
+| [Yarn](https://yarnpkg.com/en/) | https://yarnpkg.com/en/docs/install |
 
 ### Modifying
 
@@ -42,10 +42,8 @@ To modify the source files, you'll need to:
    ```
    This will start a development server at http://127.0.0.1:8000
  
-4. edit the files as needed. 
-   * `index.html`: structure and contents
-   * `less/shweb.less`: style
- 
+4. edit the theme files as needed. See the [theme documentation]( http://squidfunk.github.io/mkdocs-material/customization/#theme-development) for details. 
+    
     Updates will automatically appear at http://127.0.0.1:8000
 
 #### Sync'ing with upstream
@@ -68,7 +66,7 @@ Once you're satisifed with the results, you can build the static files with:
 ```
 $ yarn run build
 ```
-This will generate the theme files in `/material`, which can then be copied in the documentation source tree ([`/material`](https://github.com/stanford-rc/sherlock/tree/web_docs/material) in the [`web_docs`](https://github.com/stanford-rc/sherlock/tree/web_docs) branch)
+This will generate the theme files in `/material`, which can then be copied in the documentation source tree ([`/theme`](https://github.com/stanford-rc/sherlock/tree/web_docs/theme) in the [`web_docs`](https://github.com/stanford-rc/sherlock/tree/web_docs) branch)
 
 Don't forget to commit the changes!
 ```
@@ -80,7 +78,7 @@ $ git commit
 Deployment should happen automatically when a change is committed on GitHub. Travis CI will take [care](https://github.com/stanford-rc/sherlock/blob/web_theme/.travis.yml) of the following steps:
   * build the theme from the freshly-committed source files, 
   * checkout the `web_docs` branch
-  * copy the compiled theme to the theme directory (`material/`) in the `web_docs` branch
+  * copy the compiled theme to the theme directory (`theme/`) in the `web_docs` branch
   * commit the changes in the `web_docs` branch
   
 If everything goes well, the automated Travis CI commit should trigger a new build of the whole documentation, with the updated theme, and a deployment to the website.
