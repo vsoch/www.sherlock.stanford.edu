@@ -71,13 +71,15 @@ script:
 #   fetch web_docs and copy contents of material/ there, then commit and push
 after_success:
     - |
-      # git config 
-      git config user.email "travis@travis-ci.com"
-      git config user.name  "Travis CI"
+      # git config (global since we'll change repos to commit)
+      git config --global user.email "travis@travis-ci.com"
+      git config --global user.name  "Travis CI"
       git config --global push.default simple
       # fetch web_docs
       git clone https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git --branch web_docs --single-branch /tmp/web_docs/
+      # copy output there
       rsync -avP --delete material/ /tmp/web_docs/theme/
+      # commit+push changes
       cd /tmp/web_docs/
       git add -A theme/
       git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
