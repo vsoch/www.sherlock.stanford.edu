@@ -38,8 +38,17 @@ cache:
     directories:
         - node_modules
 
+# check that we actually need to build anything, and
 # install yarn before anything else
 before_install:
+    - |
+      if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+          TRAVIS_COMMIT_RANGE="FETCH_HEAD...$TRAVIS_BRANCH"
+      fi
+      git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(\.md$)|(^(\.git|\.editor|doc|material|site|scripts|CHANGELOG|LICENSE))/' || {
+          echo "Only non-source files were updated, no need to trigger a build."
+	      exit
+      }
     - npm install -g yarn@v0.22.0
 
 # install dependencies
