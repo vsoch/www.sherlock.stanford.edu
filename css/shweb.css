@@ -13,6 +13,17 @@
 #HW_frame_cont.HW_visible {
   z-index: 2000;
 }
+.status .status-widget__pane {
+  top: 50px;
+  left: 51px;
+}
+.status .status-widget__led {
+  position: absolute!important;
+  top: 11px;
+  height: 10px;
+  width: 10px;
+  border-radius: 10px;
+}
 body {
   overflow-x: hidden;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
