@@ -1,42 +1,52 @@
 @import "variables.less";
 @import "mixins.less";
 
+// -- Widgets ----------------------------------------------------------------
+
 // Headway widget
 #HW_badge_cont {
-    position: absolute!important; 
-    top: -3px; 
-    left: 46px
-}
-@media(min-width:768px) {
-    #HW_badge_cont {
-        position: absolute!important; 
-        top: 0; 
-        right: -5px
-    }
+    position: absolute!important;
+    top: 0;
+    right: -5px
 }
 #HW_frame_cont.HW_visible {
     z-index: 2000;
 }
 
-
 // Hund.io widget
-.status {
+#status {
+    .status-widget__pane::before {
+        display: none;
+    }
+    .status-widget__pane__heading,
+    .status-widget__pane__container {
+        text-transform: none;
+        font-size: 14px;
+    }
     .status-widget__pane {
-        top: 50px;
-        left: 51px;
+        top: 2px;
     }
     .status-widget__led {
         position: absolute!important;
-        top: 11px; 
+        top: -19px;
         height: 10px;
         width:  10px;
         border-radius: 10px;
     }
+}
 
+// don't display widget icons on small screens
+@media only screen and (max-width: 1024px) {
+    #HW_badge_cont.HW_visible,
+    #status>.status-widget__pane,
+    #status>.status-widget__led {
+        display: none;
+    }
 }
 
 
-// Global Components
+
+// -- Global Components ------------------------------------------------------
 
 body {
     overflow-x: hidden;
@@ -82,7 +92,7 @@ h1, h2, h3, h4, h5, h6 {
     .heading-font;
     font-weight: 700;
 }
-h3.airy { 
+h3.airy {
     padding: 20px 0 10px;
 }
 
@@ -126,6 +136,9 @@ h3.airy {
     background-color: @theme-primary;
     border-color: transparent;
     .navbar-brand {
+        position: absolute;
+        left: 10px;
+        margin-top: -2px;
         color: white;
         .script-font;
         &:hover,
@@ -135,10 +148,10 @@ h3.airy {
 	        color: white;
 	        text-shadow: white 0 0 4px;
         }
-	img {
-	    display: inline;
-	    margin-top: -5px;
-	}
+        img {
+            display: inline;
+            margin-top: -2px;
+        }
     }
     .navbar-collapse {
         border-color: fade(white, 2%);
@@ -148,7 +161,7 @@ h3.airy {
         border-color: @theme-primary;
         .heading-font;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         &:hover,
         &:focus {
             background-color: @theme-primary;
@@ -184,7 +197,7 @@ h3.airy {
     }
 }
 
-@media(min-width:768px) {
+@media(min-width:1024px) {
     .navbar-custom {
         background-color: transparent;
         padding: 25px 0;
@@ -193,10 +206,12 @@ h3.airy {
         transition: padding 0.3s;
         border: none;
         .navbar-brand {
+            position: relative;
             font-size: 2em;
             -webkit-transition: all 0.3s;
             -moz-transition: all 0.3s;
             transition: all 0.3s;
+            margin-left: -15px;
         }
         .navbar-nav>.active>a {
             border-radius: 3px;
@@ -213,7 +228,7 @@ h3.airy {
 }
 
 // don't display navbar separators on small screens
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px) {
     .navbar-separator {
         display: none;
     }
@@ -221,8 +236,7 @@ h3.airy {
 
 
 // Navbar Change on Scroll
-
-@media(min-width:768px) {
+@media(min-width:1024px) {
     .navbar-custom.affix {
         background-color: @theme-primary;
         padding: 10px 0;
@@ -250,18 +264,18 @@ header {
             margin-bottom: 25px;
         }
         .intro-subtitle {
-            font-weight: 700;	    
+            font-weight: 700;	
             font-size: 26px;
             line-height: 26px;
             margin-bottom: 20px;
         }
         .intro-content {
 			.serif-font;
-			font-style: italic; 
+			font-style: italic;
 			font-size: 18px;
 			line-height: 26px;
 			padding: 10px 20px 40px;
-        }  
+        }
         img {
 	        margin: 50px 50px 15px;
         }
@@ -280,22 +294,21 @@ header {
                 margin-bottom: 50px;
             }
             .intro-subtitle {
-		font-weight: 700;	    
+		        font-weight: 700;	
                 font-size: 40px;
                 line-height: 40px;
                 margin-bottom: 20px;
             }
             .intro-content {
-		.serif-font;
-		font-style: italic; 
+		        .serif-font;
+        		font-style: italic;
                 font-size: 22px;
-		line-height: 30px;
+		        line-height: 30px;
                 padding: 10px 80px 40px;
-
             }
-	    img {
-		margin: 50px 50px 15px;
-	    }
+            img {
+                margin: 50px 50px 15px;
+            }
         }
     }
 }
@@ -303,7 +316,7 @@ header {
 // Global Section Styles
 
 section {
-    padding: 100px 0;
+    padding: 50px 0;
     h2.section-heading {
         font-size: 40px;
         margin-top: 0;
@@ -313,15 +326,15 @@ section {
         font-size: 16px;
         .serif-font;
         text-transform: none;
-	font-style: italic; 
+	    font-style: italic;
         font-weight: 400;
-        margin-bottom: 75px;
+        margin-bottom: 25px;
     }
 }
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 100px 0;
     }
 }
 
@@ -551,5 +564,3 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: @theme-primary;
 }
-
-
