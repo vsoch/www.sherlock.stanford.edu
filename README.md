@@ -20,7 +20,7 @@ Some software is required to build the theme:
 | Software | Installation |
 | --- | --- | 
 | [Node.js](https://nodejs.org/en/) | https://nodejs.org/en/download/ |
-| [Yarn](http://squidfunk.github.io/mkdocs-material/) | https://yarnpkg.com/en/docs/install |
+| [Yarn](https://yarnpkg.com/en/) | https://yarnpkg.com/en/docs/install |
 
 ### Modifying
 
