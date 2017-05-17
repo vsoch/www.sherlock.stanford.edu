@@ -42,10 +42,8 @@ To modify the source files, you'll need to:
    ```
    This will start a development server at http://127.0.0.1:8000
  
-4. edit the files as needed. 
-   * `index.html`: structure and contents
-   * `less/shweb.less`: style
- 
+4. edit the theme files as needed. See the [theme documentation]( http://squidfunk.github.io/mkdocs-material/customization/#theme-development) for details. 
+    
     Updates will automatically appear at http://127.0.0.1:8000
 
 #### Sync'ing with upstream
