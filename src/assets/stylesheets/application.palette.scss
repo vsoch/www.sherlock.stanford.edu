@@ -94,6 +94,11 @@ button[data-md-color-accent] {
   // Color palette
   [data-md-color-primary="#{$name}"] {
 
+    // Highlighted text
+    .md-highlight {
+      color: $color;
+    }
+
     // Links in typesetted content
     .md-typeset a {
       color: $color;
