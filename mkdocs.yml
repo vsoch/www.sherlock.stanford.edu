@@ -36,11 +36,12 @@ theme_dir: material
 
 # Options
 extra:
+  made_in: Paris, France
   feature:
     tabs: false
   palette:
     primary: stanford
-    accent: stanford
+    accent:  stanford
   social:
     - type: globe
       link: http://struct.cc
