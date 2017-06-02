@@ -1,3 +1,14 @@
+mkdocs-material-1.7.1 (2017-06-01)
+
+  * Fixed wrong z-index order of header, overlay and drawer
+  * Fixed wrong offset of targeted footnote back references
+
+mkdocs-material-1.7.0 (2017-06-01)
+
+  * Added "copy to clipboard" buttons to code blocks
+  * Added support for multilingual site search
+  * Fixed search term highlighting for non-latin languages
+
 mkdocs-material-1.6.4 (2017-05-24)
 
   * Fixed #337: JavaScript error for GitHub organization URLs
