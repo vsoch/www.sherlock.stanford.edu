@@ -68,7 +68,7 @@ gulp.task('build', ['less', 'minify-css', 'minify-js'], function() {
         .pipe(gulp.dest('build/css'));
     gulp.src('js/*min.js')
         .pipe(gulp.dest('build/js'));
-    gulp.src('img/*')
+    gulp.src('img/**/*')
         .pipe(gulp.dest('build/img'));
     gulp.src('index.html')
         .pipe(gulp.dest('build/'));
