@@ -4,7 +4,7 @@
   "version": "2.0.1",
   "homepage": "http://web.sherlock.stanford.edu",
   "author": "Kilian Cavalotti",
-  "license": "unlicensed", 
+  "license": "unlicensed",
   "private": true,
   "devDependencies": {
     "bootstrap": "^3.3.7",
