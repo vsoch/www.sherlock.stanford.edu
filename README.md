@@ -55,18 +55,6 @@ $ gulp build
 
 ### Deploying
 
-Deployment should happen automatically when a change is committed on GitHub.
-
-This will generate the compiled landing page files in `/build`, which can then be copied in the documentation source tree ([`/src`](https://github.com/stanford-rc/sherlock/tree/web_docs/src) in the [`web_docs`](https://github.com/stanford-rc/sherlock/tree/web_docs) branch)
-
-Don't forget to commit the changes!
-
-```
-$ git commit 
-```
-
-### Deploying
-
 Deployment should happen automatically when a change is committed on GitHub. Travis CI will take [care](https://github.com/stanford-rc/sherlock/blob/web_landing/.travis.yml) of the following steps:
   * build the landing page from the freshly-committed source files, 
   * checkout the `web_docs` branch
