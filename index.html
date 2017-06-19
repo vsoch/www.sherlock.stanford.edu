@@ -127,6 +127,7 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+          <span id="status"></span>
           <li class="hidden">
             <a href="#page-top"></a>
           </li>
@@ -146,7 +147,8 @@
             <span class="navbar-separator"></span>
           </li>
           <li>
-            <a class="page-scroll" href="https://status.sherlock.stanford.edu">Status<span id="status"></span></a>
+            <a class="page-scroll"
+            href="https://status.sherlock.stanford.edu">Status</a>
           </li>
           <li>
             <a class="page-scroll changelog" href="https://news.sherlock.stanford.edu">News</a>
@@ -471,7 +473,8 @@
 <script src="//libraries.hund.io/status-js/status-2.1.0.js"></script>
 <script>
   var statusWidget = new Status.Widget({
-	hostname: "status.sherlock.stanford.edu",
+	//hostname: "status.sherlock.stanford.edu",
+	hostname: "srcc-oak.hund.io",
 	selector: "#status",
 	display: {
 		hideOnError: true,

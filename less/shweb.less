@@ -14,24 +14,34 @@
 }
 
 // Hund.io widget
-#status {
-    .status-widget__pane::before {
-        display: none;
-    }
-    .status-widget__pane__heading,
-    .status-widget__pane__container {
-        text-transform: none;
-        font-size: 14px;
-    }
-    .status-widget__pane {
-        top: 2px;
-    }
-    .status-widget__led {
+#status .status-widget {
+    &__led {
         position: absolute!important;
-        top: -19px;
+        z-index: 50;
+        top: -5px;
+        left: -365px;
         height: 10px;
         width:  10px;
         border-radius: 10px;
+    }
+    &__pane {
+        top: 15px;
+        left: -365px;
+        z-index: 50;
+    }
+    &__pane::before {
+        display: none;
+    }
+    &__issue * {
+        letter-spacing: normal;
+        padding: 5px 0;
+    }
+    &__issue__title {
+        color:  #8c1515;
+        float: none;
+    } 
+    &__issue__body > p {
+        font-size: 13px;
     }
 }
 
