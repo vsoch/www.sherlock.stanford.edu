@@ -12,10 +12,21 @@ To determine the currently installed version, use the following command:
 
 ``` sh
 pip show mkdocs-material | grep -E ^Version
-# Version 1.7.2
+# Version 1.7.4
 ```
 
 ## Changelog
+
+### 1.7.4 <small> _ June 21, 2017</small>
+
+* Fixed functional link colors in table of contents for active palette
+* Fixed [#368][368]: Compatibility issues with IE11
+
+  [368]: https://github.com/squidfunk/mkdocs-material/issues/368
+
+### 1.7.3 <small> _ June 7, 2017</small>
+
+* Fixed error when setting language to Japanese for site search
 
 ### 1.7.2 <small> _ June 6, 2017</small>
 
