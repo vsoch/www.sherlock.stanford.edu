@@ -302,9 +302,8 @@ function initialize(config) { // eslint-disable-line func-style
 
         /* Retrieve all results */
         const links = Array.prototype.slice.call(
-          document.querySelectorAll("[data-md-component=search] [href]"))
-        if (!links.length)
-          return
+          document.querySelectorAll(
+            "[data-md-component=query], [data-md-component=search] [href]"))
 
         /* Retrieve current active/focused result */
         const focus = links.find(link => {
@@ -321,10 +320,10 @@ function initialize(config) { // eslint-disable-line func-style
         ) % links.length)
 
         /* Set active state and focus */
-        if (!(links[index] instanceof HTMLElement))
-          throw new ReferenceError
-        links[index].dataset.mdState = "active"
-        links[index].focus()
+        if (links[index]) {
+          links[index].dataset.mdState = "active"
+          links[index].focus()
+        }
 
         /* Prevent scrolling of page */
         ev.preventDefault()
@@ -334,8 +333,8 @@ function initialize(config) { // eslint-disable-line func-style
         return false
       }
 
-    /* Search is closed */
-    } else {
+    /* Search is closed and we're not inside a form */
+    } else if (document.activeElement && !document.activeElement.form) {
 
       /* F/S: Open search if not in input field */
       if (ev.keyCode === 70 || ev.keyCode === 83) {

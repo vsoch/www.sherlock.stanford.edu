@@ -43,5 +43,3 @@
 ### Local modifications
 # don't use upstream hooks
 /.githooks
-# don't commit compiled files
-/material

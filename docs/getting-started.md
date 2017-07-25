@@ -316,7 +316,7 @@ extra:
     - type: 'twitter'
       link: 'https://twitter.com/squidfunk'
     - type: 'linkedin'
-      link: 'https://de.linkedin.com/in/martin-donath-20a95039'
+      link: 'https://linkedin.com/in/squidfunk'
 ```
 
 The links are generated in order and the `type` of the links must match the
@@ -349,12 +349,14 @@ extra:
   disqus: 'your-disqus-shortname'
 ```
 
-A new entry at the bottom of the table of contents is generated that is linking
-to the comments section. The necessary JavaScript is automatically included.
+The comments section is inserted in *every page, except the index page*.
+Additionally, a new entry at the bottom of the table of contents is generated
+that is linking to the comments section. The necessary JavaScript is
+automatically included.
 
 !!! warning "Requirements"
 
-    `site_url` value must be set in `mkdocs.yml` for the Discus integration to
+    `site_url` value must be set in `mkdocs.yml` for the Disqus integration to
     load properly.
 
   [17]: https://disqus.com
@@ -517,7 +519,7 @@ extra:
     - type: 'twitter'
       link: 'https://twitter.com/john-doe'
     - type: 'linkedin'
-      link: 'https://de.linkedin.com/in/john-doe'
+      link: 'https://linkedin.com/in/john-doe'
 
 # Google Analytics
 google_analytics:
