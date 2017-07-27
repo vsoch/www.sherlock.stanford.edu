@@ -55,8 +55,6 @@
     }
 }
 
-
-
 // -- Global Components ------------------------------------------------------
 
 body {
@@ -149,7 +147,7 @@ h3.airy {
     .navbar-brand {
         position: absolute;
         left: 10px;
-        margin-top: -2px;
+        margin-top: -4px;
         color: white;
         .script-font;
         &:hover,
@@ -256,6 +254,16 @@ h3.airy {
         }
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .navbar-custom {
+        .navbar-brand {
+            margin-top: 0px;
+        }
+    }
+}
+
+
 
 header {
     background-image: url('../img/header-bg.jpg');
