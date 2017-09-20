@@ -34,9 +34,9 @@ git:
 # cache dependencies
 cache:
     pip: true
-    yarn: true
-    directories:
-        - node_modules
+#    yarn: true
+#    directories:
+#        - node_modules
 
 # install yarn before anything else
 before_install:
