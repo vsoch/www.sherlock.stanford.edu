@@ -1,3 +1,7 @@
+mkdocs-material-1.10.1 (2017-09-14)
+
+  * Fixed #455: bold code blocks rendered with normal font weight
+
 mkdocs-material-1.10.0 (2017-09-01)
 
   * Added support to make logo default icon configurable
@@ -18,7 +22,7 @@ mkdocs-material-1.9.0 (2017-08-29)
 
 mkdocs-material-1.8.1 (2017-08-07)
 
-  * Fixed #429: Missing pagination for GitHub API
+  * Fixed #421: Missing pagination for GitHub API
 
 mkdocs-material-1.8.0 (2017-08-02)
 

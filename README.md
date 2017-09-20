@@ -59,7 +59,6 @@ $ git fetch theme_upstream
 $ git merge theme_upstream/master
 ```
 
-
 ### Building
 
 Once you're satisifed with the results, you can build the static files with:
