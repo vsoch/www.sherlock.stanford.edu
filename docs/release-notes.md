@@ -12,10 +12,26 @@ To determine the currently installed version, use the following command:
 
 ``` sh
 pip show mkdocs-material | grep -E ^Version
-# Version 1.10.1
+# Version 1.10.4
 ```
 
 ## Changelog
+
+### 1.10.4 <small>_ October 18, 2017</small>
+
+* Improved print styles of code blocks
+* Improved search UX (don't close on enter if no selection)
+* Fixed [#495][495]: Vertical scrollbar on short pages
+
+  [495]: https://github.com/squidfunk/mkdocs-material/issues/484
+
+### 1.10.3 <small>_ October 11, 2017</small>
+
+* Fixed [#484][484]: Vertical scrollbar on some MathJax formulas
+* Fixed [#483][483]: Footnote backref target offset regression
+
+  [483]: https://github.com/squidfunk/mkdocs-material/issues/483
+  [484]: https://github.com/squidfunk/mkdocs-material/issues/484
 
 ### 1.10.2 <small>_ October 6, 2017</small>
 
