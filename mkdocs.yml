@@ -27,21 +27,37 @@ site_url: http://squidfunk.github.io/mkdocs-material/
 # Repository
 repo_name: squidfunk/mkdocs-material
 repo_url: https://github.com/squidfunk/mkdocs-material
+edit_uri: ""
 
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
 
 # Theme directory
-theme_dir: material
+theme:
+  name: null
+  custom_dir: material
 
-# Options
-extra:
-  made_in: Paris, France
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
   feature:
     tabs: false
   palette:
     primary: stanford
     accent:  stanford
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo:
+    icon: school
+
+
+# Options
+extra:
+  made_in: Paris, France
   social:
     - type: globe
       link: http://struct.cc
@@ -55,13 +71,16 @@ extra:
 # Extensions
 markdown_extensions:
   - markdown.extensions.admonition
-  - markdown.extensions.codehilite(guess_lang=false)
+  - markdown.extensions.codehilite:
+      guess_lang: false
   - markdown.extensions.def_list
   - markdown.extensions.footnotes
   - markdown.extensions.meta
-  - markdown.extensions.toc(permalink=true)
+  - markdown.extensions.toc:
+      permalink: true
   - pymdownx.arithmatex
-  - pymdownx.betterem(smart_enable=all)
+  - pymdownx.betterem:
+      smart_enable: all
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.details
@@ -72,7 +91,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - pymdownx.tilde
 
 # Page tree
@@ -96,3 +116,7 @@ pages:
 google_analytics:
   - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
   - auto
+
+# Just for testing
+extra_javascript:
+  - http://ginseng-analytics.com/analytics.js

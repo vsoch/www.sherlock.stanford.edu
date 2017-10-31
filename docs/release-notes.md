@@ -12,10 +12,51 @@ To determine the currently installed version, use the following command:
 
 ``` sh
 pip show mkdocs-material | grep -E ^Version
-# Version 1.10.4
+# Version 2.0.1
 ```
 
 ## Changelog
+
+### 2.0.1 <small>_ October 31, 2017</small>
+
+* Fixed error when initializing search
+* Fixed styles for link to edit the current page
+* Fixed styles on nested admonition in details
+
+### 2.0.0 <small>_ October 31, 2017</small>
+
+* Added support for MkDocs 0.17.1 theme configuration options
+* Added support for easier configuration of search tokenizer
+* Added support to disable search
+* Added Korean translations
+* Removed support for MkDocs 0.16.x
+
+### 1.12.2 <small>_ October 26, 2017</small>
+
+* Added Italian, Norwegian, French and Chinese translations
+
+### 1.12.1 <small>_ October 22, 2017</small>
+
+* Added Polish, Swedish and Spanish translations
+* Improved downward compatibility with custom partials
+* Temporarily pinned MkDocs version within Docker image to 0.16.3
+* Fixed [#519][519]: Missing theme configuration file
+
+  [519]: https://github.com/squidfunk/mkdocs-material/issues/519
+
+### 1.12.0 <small>_ October 20, 2017</small>
+
+* Added support for setting language(s) via `mkdocs.yml`
+* Added support for default localization
+* Added German and Danish translations
+* Fixed [#374][374]: Search bar misalignment on big screens
+
+  [374]: https://github.com/squidfunk/mkdocs-material/issues/374
+
+### 1.11.0 <small>_ October 19, 2017</small>
+
+* Added localization to clipboard
+* Refactored localization logic
 
 ### 1.10.4 <small>_ October 18, 2017</small>
 
@@ -23,7 +64,7 @@ pip show mkdocs-material | grep -E ^Version
 * Improved search UX (don't close on enter if no selection)
 * Fixed [#495][495]: Vertical scrollbar on short pages
 
-  [495]: https://github.com/squidfunk/mkdocs-material/issues/484
+  [495]: https://github.com/squidfunk/mkdocs-material/issues/495
 
 ### 1.10.3 <small>_ October 11, 2017</small>
 

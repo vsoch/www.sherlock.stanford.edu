@@ -20,7 +20,12 @@
   IN THE SOFTWARE.
 -->
 
-{% import "partials/language.html" as lang %}
+{% import "partials/language.html" as lang with context %}
+
+<!-- Theme options -->
+{% set feature = config.theme.feature %}
+{% set palette = config.theme.palette %}
+{% set font = config.theme.font %}
 
 <!DOCTYPE html>
 <html lang="{{ lang.t('language') }}" class="no-js">
@@ -53,6 +58,19 @@
       {% elif config.site_author %}
         <meta name="author" content="{{ config.site_author }}" />
       {% endif %}
+
+      <!-- Localization -->
+      {% for key in [
+        "clipboard.copy",
+        "clipboard.copied",
+        "search.language",
+        "search.result.none",
+        "search.result.one",
+        "search.result.other",
+        "search.tokenizer"
+      ] %}
+        <meta name="lang:{{ key }}" content="{{ lang.t(key) }}" />
+      {% endfor %}
 
       <!-- Favicon -->
       {% if config.site_favicon %}
@@ -92,7 +110,7 @@
           href="{{ base_url }}/assets/stylesheets/application.css" />
 
       <!-- Extra color palette -->
-      {% if config.extra.palette %}
+      {% if palette.primary or palette.accent %}
         <link rel="stylesheet" type="text/css"
             href="{{ base_url }}/assets/stylesheets/application.palette.css" />
       {% endif %}
@@ -100,21 +118,19 @@
 
     <!-- Webfonts -->
     {% block fonts %}
-      <!-- TODO: remove the second check in the next major version -->
-      {% if config.extra.font != false and config.extra.font != "none" %}
-        {% set text = config.extra.get("font", {}).text | default("Roboto") %}
-        {% set code = config.extra.get("font", {}).code
-                    | default("Roboto Mono") %}
-        {% set font = text + ":300,400,400i,700|" + code | replace(" ", "+") %}
+      {% if font != false %}
         <link rel="stylesheet" type="text/css"
-            href="https://fonts.googleapis.com/css?family={{ font }}" />
+            href="https://fonts.googleapis.com/css?family={{
+              font.text | replace(' ', '+')  + ':300,400,400i,700|' +
+              font.code | replace(' ', '+')
+            }}" />
         <style>
           body, input {
-            font-family: "{{ text }}", "Helvetica Neue",
+            font-family: "{{ font.text }}", "Helvetica Neue",
               Helvetica, Arial, sans-serif;
           }
           pre, code, kbd {
-            font-family: "{{ code }}", "Courier New",
+            font-family: "{{ font.code }}", "Courier New",
               Courier, monospace;
           }
         </style>
@@ -135,12 +151,17 @@
   </head>
 
   <!-- Integrate color palette, if defined -->
-  {% set palette = config.extra.get("palette", {}) %}
-  {% set primary = palette.primary | replace(" ", "-") | lower %}
-  {% set accent  = palette.accent  | replace(" ", "-") | lower %}
-  {% if primary or accent %}
-    <body data-md-color-primary="{{ primary }}"
-        data-md-color-accent="{{ accent }}">
+  {% if palette.primary or palette.accent %}
+    {% set primary = palette.primary | replace(" ", "-") | lower %}
+    {% set accent  = palette.accent  | replace(" ", "-") | lower %}
+    {% if palette.primary and palette.accent %}
+      <body data-md-color-primary="{{ primary }}"
+          data-md-color-accent="{{ accent }}">
+    {% elif palette.primary %}
+      <body data-md-color-primary="{{ primary }}">
+    {% elif palette.accent %}
+      <body data-md-color-accent="{{ accent }}">
+    {% endif %}
   {% else %}
     <body>
   {% endif %}
@@ -180,12 +201,6 @@
 
     <!-- Container, necessary for web-application context -->
     <div class="md-container">
-      {% set feature = config.extra.get("feature", {}) %}
-
-      <!-- Hero banner -->
-      {% if feature.hero %}
-        {% include "partials/hero.html" %}
-      {% endif %}
 
       <!-- Tabs with outline -->
       {% if feature.tabs %}
@@ -288,26 +303,33 @@
       <script src="{{ base_url }}/assets/javascripts/application.js"></script>
 
       <!-- Load additional languages for search -->
-      {% set languages = lang.t("search.languages").split(",") %}
-      {% if languages | length and languages[0] != "" %}
-        {% set path = base_url + "/assets/javascripts/lunr" %}
-        <script src="{{ path }}/lunr.stemmer.support.js"></script>
-        {% for language in languages | map("trim") %}
-          {% if language != "en" %}
-            {% if language == "jp" %}
-              <script src="{{ path }}/tinyseg.js"></script>
+      {% if lang.t("search.language") != "en" %}
+        {% set languages = lang.t("search.language").split(",") %}
+        {% if languages | length and languages[0] != "" %}
+          {% set path = base_url + "/assets/javascripts/lunr" %}
+          <script src="{{ path }}/lunr.stemmer.support.js"></script>
+          {% for language in languages | map("trim") %}
+            {% if language != "en" %}
+              {% if language == "jp" %}
+                <script src="{{ path }}/tinyseg.js"></script>
+              {% endif %}
+              <script src="{{ path }}/lunr.{{ language }}.js"></script>
             {% endif %}
-            <script src="{{ path }}/lunr.{{ language }}.js"></script>
+          {% endfor %}
+          {% if languages | length > 1 %}
+            <script src="{{ path }}/lunr.multi.js"></script>
           {% endif %}
-        {% endfor %}
-        {% if languages | length > 1 %}
-          <script src="{{ path }}/lunr.multi.js"></script>
         {% endif %}
       {% endif %}
 
       <!-- Initialize application -->
       <script>
-        app.initialize({ url: { base: "{{ base_url }}" } });
+        app.initialize({
+          version: "{{ mkdocs_version }}",
+          url: {
+            base: "{{ base_url }}"
+          }
+        });
       </script>
       {% for path in extra_javascript %}
         <script src="{{ path }}"></script>

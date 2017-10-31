@@ -20,36 +20,22 @@
   IN THE SOFTWARE.
 -->
 
-{% import "partials/language.html" as lang with context %}
-
-<!--
-  Check whether the repository is hosted on one of the supported code hosting
-  platforms (Github, Gitlab or Bitbucket) to show icon.
--->
-{% set platform = config.extra.repo_icon or config.repo_url %}
-{% if "github" in platform %}
-  {% set repo_type = "github" %}
-{% elif "gitlab" in platform %}
-  {% set repo_type = "gitlab" %}
-{% elif "bitbucket" in platform %}
-  {% set repo_type = "bitbucket" %}
-{% else %}
-  {% set repo_type = "" %}
-{% endif %}
-
-<!-- Repository containing source -->
-{% block repo %}
-  <a href="{{ config.repo_url }}" title="{{ lang.t('source.link.title') }}"
-      class="md-source" data-md-source="{{ repo_type }}">
-    {% if repo_type %}
-      <div class="md-source__icon">
-        <svg viewBox="0 0 24 24" width="24" height="24">
-          <use xlink:href="#{{ repo_type }}" width="24" height="24"></use>
-        </svg>
-      </div>
-    {% endif %}
-    <div class="md-source__repository">
-      {{ config.repo_name }}
-    </div>
-  </a>
-{% endblock %}
+<!-- Translations: Korean -->
+{% macro t(key) %}{{ {
+  "language": "kr",
+  "clipboard.copy": "클립보드로 복사",
+  "clipboard.copied": "클립보드에 복사됨",
+  "edit.link.title": "이 페이지를 편집",
+  "footer.previous": "이전",
+  "footer.next": "다음",
+  "meta.comments": "댓글",
+  "meta.source": "출처",
+  "search.placeholder": "검색",
+  "search.result.placeholder": "검색어를 입력하세요",
+  "search.result.none": "검색어와 일치하는 문서가 없습니다",
+  "search.result.one": "1개의 일치하는 문서",
+  "search.result.other": "#개의 일치하는 문서",
+  "search.tokenizer": "[\s\-]+",
+  "source.link.title": "저장소로 이동",
+  "toc.title": "목차"
+}[key] }}{% endmacro %}
