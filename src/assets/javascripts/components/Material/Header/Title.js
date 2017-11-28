@@ -24,46 +24,74 @@
  * Class
  * ------------------------------------------------------------------------- */
 
-export default class Toggle {
+export default class Title {
 
   /**
-   * Toggle tabs visibility depending on page y-offset
+   * Swap header title topics when header is scrolled past
    *
    * @constructor
    *
-   * @property {HTMLElement} el_ - Content container
-   * @property {number} offset_ - Toggle page-y offset
-   * @property {boolean} active_ - Tabs visibility
+   * @property {HTMLElement} el_ - Element
+   * @property {HTMLElement} header_ - Header
+   * @property {boolean} active_ - Title state
    *
    * @param {(string|HTMLElement)} el - Selector or HTML element
+   * @param {(string|HTMLHeadingElement)} header - Selector or HTML element
    */
-  constructor(el) {
-    const ref = (typeof el === "string")
+  constructor(el, header) {
+    let ref = (typeof el === "string")
       ? document.querySelector(el)
       : el
-    if (!(ref instanceof Node))
+    if (!(ref instanceof HTMLElement))
       throw new ReferenceError
     this.el_ = ref
 
-    /* Initialize offset and state */
+    /* Retrieve header */
+    ref = (typeof header === "string")
+      ? document.querySelector(header)
+      : header
+    if (!(ref instanceof HTMLHeadingElement))
+      throw new ReferenceError
+    this.header_ = ref
+
+    /* Initialize state */
     this.active_ = false
   }
 
   /**
-   * Update visibility
+   * Setup title state
    */
-  update() {
-    const active = window.pageYOffset >=
-      this.el_.children[0].offsetTop + (5 - 48)                                 // TODO: quick hack to enable same handling for hero
-    if (active !== this.active_)
-      this.el_.dataset.mdState = (this.active_ = active) ? "hidden" : ""
+  setup() {
+    Array.prototype.forEach.call(this.el_.children, node => {                   // TODO: use childNodes here for IE?
+      node.style.width = `${this.el_.offsetWidth - 20}px`
+    })
   }
 
   /**
-   * Reset visibility
+   * Update title state
+   *
+   * @param {Event} ev - Event
+   */
+  update(ev) {
+    const active = window.pageYOffset >= this.header_.offsetTop
+    if (active !== this.active_)
+      this.el_.dataset.mdState = (this.active_ = active) ? "active" : ""
+
+    /* Hack: induce ellipsis on topics */
+    if (ev.type === "resize" || ev.type === "orientationchange") {
+      Array.prototype.forEach.call(this.el_.children, node => {
+        node.style.width = `${this.el_.offsetWidth - 20}px`
+      })
+    }
+
+  }
+
+  /**
+   * Reset title state
    */
   reset() {
     this.el_.dataset.mdState = ""
+    this.el_.style.width = ""
     this.active_ = false
   }
 }

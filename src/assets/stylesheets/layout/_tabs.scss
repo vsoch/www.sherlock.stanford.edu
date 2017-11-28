@@ -28,7 +28,8 @@
 .md-tabs {
   width: 100%;
   transition: background 0.25s;
-  background: mix($md-color-primary, $md-color-black, 75%);
+  background-color: $md-color-primary;
+  color: $md-color-white;
   overflow: auto;
 
   // [tablet -]: Hide tabs for tablet and below, as they don't make any sense
@@ -64,16 +65,16 @@
     display: block;
     margin-top: 1.6rem;
     transition:
-      color     0.25s,
       transform 0.4s cubic-bezier(0.1, 0.7, 0.1, 1),
-      opacity   0.1s;
-    color: $md-color-white--light;
+      opacity   0.25s;
     font-size: 1.4rem;
+    opacity: 0.7;
 
     // Active or hovered link
     &--active,
     &:hover {
-      color: $md-color-white;
+      color: inherit;
+      opacity: 1;
     }
 
     // Delay transitions by a small amount
@@ -86,7 +87,6 @@
 
   // Fade-out tabs background upon scrolling
   &[data-md-state="hidden"] {
-    background: $md-color-primary;
     pointer-events: none;
 
     // Hide tabs upon scrolling - disable transition to minimizes repaints whilte

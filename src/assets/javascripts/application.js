@@ -20,6 +20,27 @@
  * IN THE SOFTWARE.
  */
 
+import "../images/icons/bitbucket.svg"
+import "../images/icons/github.svg"
+import "../images/icons/gitlab.svg"
+
+import "../stylesheets/application.scss"
+import "../stylesheets/application-palette.scss"
+
+/* ----------------------------------------------------------------------------
+ * Polyfills
+ * ------------------------------------------------------------------------- */
+
+import "custom-event-polyfill"
+import "unfetch/polyfill"
+
+import Promise from "promise-polyfill"
+window.Promise = window.Promise || Promise
+
+/* ----------------------------------------------------------------------------
+ * Dependencies
+ * ------------------------------------------------------------------------- */
+
 import Clipboard from "clipboard"
 import FastClick from "fastclick"
 
@@ -33,11 +54,10 @@ import Material from "./components/Material"
  * Return the meta tag value for the given key
  *
  * @param {string} key - Meta name
- * @param {string} [_] - Stop Flow complaining (TODO)
  *
  * @return {string} Meta content value
  */
-const translate = (key, _) => { // eslint-disable-line no-unused-vars
+const translate = key => {
   const meta = document.getElementsByName(`lang:${key}`)[0]
   if (!(meta instanceof HTMLMetaElement))
     throw new ReferenceError
@@ -86,7 +106,7 @@ function initialize(config) { // eslint-disable-line func-style
 
     /* Clipboard integration */
     if (Clipboard.isSupported()) {
-      const blocks = document.querySelectorAll("div > pre, pre > code")
+      const blocks = document.querySelectorAll(".codehilite > pre, pre > code")
       Array.prototype.forEach.call(blocks, (block, index) => {
         const id = `__code_${index}`
 
@@ -145,6 +165,32 @@ function initialize(config) { // eslint-disable-line func-style
       })
     }
 
+    /* Open details after anchor jump */
+    const details = () => {
+      if (document.location.hash) {
+        const el = document.getElementById(document.location.hash.substring(1))
+        if (!el)
+          return
+
+        /* Walk up as long as we're not in a details tag */
+        let parent = el.parentNode
+        while (parent && !(parent instanceof HTMLDetailsElement))
+          parent = parent.parentNode
+
+        /* If there's a details tag, open it */
+        if (parent && !parent.open) {
+          parent.open = true
+
+          /* Force reload, so the viewport repositions */
+          const loc = location.hash
+          location.hash = " "
+          location.hash = loc
+        }
+      }
+    }
+    window.addEventListener("hashchange", details)
+    details()
+
     /* Force 1px scroll offset to trigger overflow scrolling */
     if (Modernizr.ios) {
       const scrollable = document.querySelectorAll("[data-md-scrollfix]")
@@ -166,12 +212,26 @@ function initialize(config) { // eslint-disable-line func-style
   }).listen()
 
   /* Component: header shadow toggle */
-  new Material.Event.MatchMedia("(min-width: 1220px)",
+  new Material.Event.Listener(window, [
+    "scroll", "resize", "orientationchange"
+  ], new Material.Header.Shadow(
+    "[data-md-component=container]",
+    "[data-md-component=header]")
+  ).listen()
+
+  /* Component: header title toggle */
+  new Material.Event.Listener(window, [
+    "scroll", "resize", "orientationchange"
+  ], new Material.Header.Title(
+    "[data-md-component=title]",
+    ".md-typeset h1")
+  ).listen()
+
+  /* Component: hero visibility toggle */
+  if (document.querySelector("[data-md-component=hero]"))
     new Material.Event.Listener(window, [
       "scroll", "resize", "orientationchange"
-    ], new Material.Header.Shadow(
-      "[data-md-component=container]",
-      "[data-md-component=header]")))
+    ], new Material.Tabs.Toggle("[data-md-component=hero]")).listen()
 
   /* Component: tabs visibility toggle */
   if (document.querySelector("[data-md-component=tabs]"))
@@ -421,6 +481,11 @@ function initialize(config) { // eslint-disable-line func-style
  * Exports
  * ------------------------------------------------------------------------- */
 
-export {
+/* Provide this for downward compatibility for now */
+const app = {
   initialize
+}
+
+export {
+  app
 }

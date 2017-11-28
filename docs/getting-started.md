@@ -2,17 +2,9 @@
 
 ## Installation
 
-!!! tip "Set up Material using Docker"
-
-    The official [Docker image][1] for Material comes with all dependencies
-    pre-installed and ready-to-use with the latest version published on PyPI,
-    packaged in a very small image (36MB compressed).
-
-  [1]: https://hub.docker.com/r/squidfunk/mkdocs-material/
-
 ### Installing MkDocs
 
-Before installing [MkDocs][2], you need to make sure you have Python and `pip`
+Before installing [MkDocs][1], you need to make sure you have Python and `pip`
 – the Python package manager – up and running. You can verify if you're already
 good to go with the following commands:
 
@@ -30,11 +22,9 @@ pip install mkdocs && mkdocs --version
 # mkdocs, version 0.17.1
 ```
 
-!!! warning "MkDocs version requirements"
+Material requires MkDocs >= 0.17.1.
 
-    Material requires MkDocs >= 0.17.1
-
-  [2]: http://www.mkdocs.org
+  [1]: http://www.mkdocs.org
 
 ### Installing Material
 
@@ -48,18 +38,18 @@ pip install mkdocs-material
 
 #### using choco
 
-If you're on Windows you can use [Chocolatey][3] to install [Material][4]:
+If you're on Windows you can use [Chocolatey][2] to install [Material][3]:
 
 ``` dos
 choco install mkdocs-material
 ```
 
-This will install all required dependencies like [Python][5] and [MkDocs][6].
+This will install all required dependencies like [Python][4] and [MkDocs][5].
 
-  [3]: https://chocolatey.org
-  [4]: https://chocolatey.org/packages/mkdocs-material
-  [5]: https://chocolatey.org/packages/python
-  [6]: https://chocolatey.org/packages/mkdocs
+  [2]: https://chocolatey.org
+  [3]: https://chocolatey.org/packages/mkdocs-material
+  [4]: https://chocolatey.org/packages/python
+  [5]: https://chocolatey.org/packages/mkdocs
 
 #### cloning from GitHub
 
@@ -70,12 +60,12 @@ repository into a subfolder of your project's root directory:
 git clone https://github.com/squidfunk/mkdocs-material.git
 ```
 
-This is especially useful if you want to [extend the theme][7] and
-[override some parts][8] of the theme. The theme will reside in the folder
+This is especially useful if you want to [extend the theme][6] and
+[override some parts][7] of the theme. The theme will reside in the folder
 `mkdocs-material/material`.
 
-  [7]: customization.md#extending-the-theme
-  [8]: customization.md#overriding-partials
+  [6]: customization.md#extending-the-theme
+  [7]: customization.md#overriding-partials
 
 ### Troubleshooting
 
@@ -99,6 +89,25 @@ This is especially useful if you want to [extend the theme][7] and
     MkDocs through some package manager (e.g. Homebrew or `apt-get`) and the
     Material theme through `pip`, so both packages end up in different
     locations. MkDocs only checks its install location for themes.
+
+### Alternative: Using Docker
+
+If you're familiar with Docker, the official [Docker image][8] for Material
+comes with all dependencies pre-installed and ready-to-use with the latest
+version published on PyPI, packaged in a very small image. Pull it with:
+
+```
+docker pull squidfunk/mkdocs-material
+```
+
+The `mkdocs` executable is provided as an entrypoint, `serve` is the default
+command. Start the development server in your project root with:
+
+```
+docker run --rm -it -p 8000:8000 -v `pwd`:/docs squidfunk/mkdocs-material
+```
+
+  [8]: https://hub.docker.com/r/squidfunk/mkdocs-material/
 
 ## Usage
 
@@ -144,14 +153,14 @@ following variables:
 theme:
   palette:
     primary: 'indigo'
-    accent: 'light blue'
+    accent: 'indigo'
 ```
 
 Color names are case-insensitive, but must match the names of the Material
 Design color palette. Valid values are: `red`, `pink`, `purple`, `deep purple`,
 `indigo`, `blue`, `light blue`, `cyan`, `teal`, `green`, `light green`, `lime`,
-`yellow`, `amber`, `orange`, `deep orange`, `brown`, `grey` and `blue grey`.
-The last three colors can only be used as a primary color.
+`yellow`, `amber`, `orange`, `deep orange`, `brown`, `grey`, `blue grey` and
+`white`. The four three colors can only be used as a primary color.
 
 If the color is set via this configuration, an additional CSS file that
 defines the color palette is automatically included. If you want to keep things
@@ -292,9 +301,10 @@ theme:
 
 Material for MkDocs supports internationalization (i18n) and provides
 translations for all template variables and labels in English `en`, French `fr`,
-German `de`, Spanish `es`, Italian `it`, Danish `da`, Polish `pl`, Norwegian
-`no`, Swedish `sv`, Korean `kr`, Russian `ru`, Chinese (Simplified) `zh` and
-Chinese (Traditional) `zh-Hant`. Specify the language with:
+German `de`, Spanish `es`, Italian `it`, Danish `da`, Portugese `pt`,
+Polish `pl`, Norwegian `no`, Swedish `sv`, Korean `kr`, Russian `ru`,
+Japanese `ja`, Chinese (Simplified) `zh` and Chinese (Traditional) `zh-Hant`.
+Specify the language with:
 
 ``` yaml
 theme:
@@ -313,7 +323,7 @@ cp partials/language/en.html partials/language/jp.html
 Feel free to contribute your localization to Material for MkDocs by opening a
 Pull Request.
 
-  [16]: https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+  [16]: https://www.w3schools.com/tags/ref_language_codes.asp
 
 #### Site search
 
@@ -328,16 +338,16 @@ project's `mkdocs.yml`:
 ``` yaml
 extra:
   search:
-    languages: 'en, de, ru'
+    language: 'en, de, ru'
 ```
 
 All defined languages are used only for stemming. This will automatically load
 the stemmers for the specified languages and set them up with site search.
 
 At the time of writing, the following languages are supported: English `en`,
-French `fr`, German `de`, Spanish `es`, Italian `it`, Japanese `jp`, Dutch `du`,
-Danish `da`, Portguese `pt`, Finnish `fi`, Romanian `ro`, Hungarian `hu`,
-Russian `ru`, Norwegian `no`, Swedish `sv` and Turkish `tr`.
+French `fr`, German `de`, Spanish `es`, Italian `it`, Dutch `du`, Danish `da`,
+Portguese `pt`, Finnish `fi`, Romanian `ro`, Hungarian `hu`, Russian `ru`,
+Norwegian `no`, Swedish `sv`, Japanese `jp` and Turkish `tr`.
 
 !!! warning "Only specify the languages you really need"
 
@@ -366,7 +376,7 @@ The default favicon can be changed by setting the `favicon` variable to an
 
 ``` yaml
 theme:
-  favicon: 'images/favicon.ico'
+  favicon: 'assets/mages/favicon.ico'
 ```
 
 ### Features
@@ -394,8 +404,8 @@ To include a link to the repository of your project within your documentation,
 set the following variables via your project's `mkdocs.yml`:
 
 ``` yaml
-repo_name: 'my-github-handle/my-project'
-repo_url: 'https://github.com/my-github-handle/my-project'
+repo_name: 'squidfunk/mkdocs-material'
+repo_url: 'https://github.com/squidfunk/mkdocs-material'
 ```
 
 The name of the repository will be rendered next to the search bar on big
@@ -452,7 +462,7 @@ will result in `fa fa-github`.
 
 ## Integrations
 
-### Google Analytics integration
+### Google Analytics
 
 MkDocs makes it easy to integrate site tracking with Google Analytics.
 Besides basic tracking, clicks on all outgoing links can be tracked as well as
@@ -465,7 +475,7 @@ google_analytics:
   - 'auto'
 ```
 
-### Disqus integation
+### Disqus
 
 Material for MkDocs is integrated with [Disqus][22], so if you want to add a
 comments section to your documentation set the shortname of your Disqus project
@@ -473,10 +483,10 @@ in your `mkdocs.yml`:
 
 ``` yaml
 extra:
-  disqus: 'your-disqus-shortname'
+  disqus: 'mkdocs-material'
 ```
 
-The comments section is inserted in *every page, except the index page*.
+The comments section is inserted on *every page, except the index page*.
 Additionally, a new entry at the bottom of the table of contents is generated
 that is linking to the comments section. The necessary JavaScript is
 automatically included.
@@ -487,28 +497,6 @@ automatically included.
     load properly.
 
   [22]: https://disqus.com
-
-## Migration
-
-### From 1.x to 2.x
-
-* Material for MkDocs 2.x requires MkDocs 0.17.1, as this version introduced
-  changes to the way themes can define options. The following variables inside
-  your project's `mkdocs.yml` need to be renamed:
-
-  * `extra.feature` becomes `theme.feature`
-  * `extra.palette` becomes `theme.palette`
-  * `extra.font` becomes `theme.font`
-  * `extra.logo` becomes `theme.logo`
-
-* Favicon support has been dropped by MkDocs, it must now be defines in
-  `theme.favicon` (previously `site_favicon`).
-
-* Localization is now separate in theme language and search language. While
-  there can only be a single language on theme-level, the search supports
-  multiple languages which can be separated by commas.
-
-* The search tokenizer can now be set through `extra.search.tokenizer`.
 
 ## Extensions
 
@@ -549,17 +537,17 @@ Below is a full example configuration for a `mkdocs.yml`:
 
 ``` yaml
 # Project information
-site_name: 'My Project'
-site_description: 'A short description of my project'
-site_author: 'John Doe'
-site_url: 'https://john-doe.github.io/my-project'
+site_name: 'Material for MkDocs'
+site_description: 'A Material Design theme for MkDocs'
+site_author: 'Martin Donath'
+site_url: 'https://squidfunk.github.io/mkdocs-material/'
 
 # Repository
-repo_name: 'my-github-handle/my-project'
-repo_url: 'https://github.com/john-doe/my-project'
+repo_name: 'squidfunk/mkdocs-material'
+repo_url: 'https://github.com/squidfunk/mkdocs-material'
 
 # Copyright
-copyright: 'Copyright &copy; 2016 - 2017 John Doe'
+copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
 
 # Configuration
 theme:
@@ -571,17 +559,16 @@ theme:
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
-  logo: 'images/logo.svg'
 
 # Customization
 extra:
   social:
     - type: 'github'
-      link: 'https://github.com/john-doe'
+      link: 'https://github.com/squidfunk'
     - type: 'twitter'
-      link: 'https://twitter.com/john-doe'
+      link: 'https://twitter.com/squidfunk'
     - type: 'linkedin'
-      link: 'https://linkedin.com/in/john-doe'
+      link: 'https://linkedin.com/in/squidfunk'
 
 # Google Analytics
 google_analytics:

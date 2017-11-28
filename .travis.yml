@@ -2,7 +2,7 @@
 #
 # config
 #
-# ---------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------
 
 sudo: false
 language: node_js
@@ -22,10 +22,10 @@ notifications:
 #
 # build
 #
-# ---------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------
 
 # Node.js version
-node_js: 5
+node_js: 8
 
 # limit clone depth to 5, to speed up build
 git:
@@ -57,7 +57,7 @@ install:
     - pip install --user -r requirements.txt
 
 # build
-script: 
+script:
     - yarn build
 
 
@@ -65,7 +65,7 @@ script:
 #
 # deployment
 #
-# ---------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------
 
 # deploy
 #   fetch web_docs and copy contents of material/ there, then commit and push
@@ -83,6 +83,7 @@ after_success:
       cd /tmp/web_docs/
       git add -A theme/
       git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
-      
+
       Travis build: $TRAVIS_BUILD_NUMBER"
       git push
+

@@ -1,3 +1,37 @@
+mkdocs-material-2.2.0 (2017-11-22)
+
+  * Added support for hero teaser
+  * Added Portuguese translations
+  * Fixed #586: Footnote backref target offset regression
+  * Fixed #605: Search stemmers not correctly loaded
+
+mkdocs-material-2.1.1 (2017-11-21)
+
+  * Replaced deprecated babel-preset-es2015 with babel-preset-env
+  * Refactored Gulp build pipeline with Webpack
+  * Removed right border on sidebars
+  * Fixed broken color transition on header
+
+mkdocs-material-2.1.0 (2017-11-19)
+
+  * Added support for white as a primary color
+  * Added support for sliding site name and title
+  * Fixed redundant clipboard button when using line numbers on code blocks
+  * Improved header appearance by making it taller
+  * Improved tabs appearance
+  * Improved CSS customizability by leveraging inheritance
+  * Removed scroll shadows via background-attachment
+
+mkdocs-material-2.0.4 (2017-11-05)
+
+  * Fixed details not opening with footnote reference
+
+mkdocs-material-2.0.3 (2017-11-05)
+
+  * Added Japanese translations
+  * Fixed #540: Jumping to anchor inside details doesn't open it
+  * Fixed active link colors in footer
+
 mkdocs-material-2.0.2 (2017-11-01)
 
   * Added Russian translations

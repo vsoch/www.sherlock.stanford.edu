@@ -12,10 +12,70 @@ To determine the currently installed version, use the following command:
 
 ``` sh
 pip show mkdocs-material | grep -E ^Version
-# Version 2.0.2
+# Version 2.2.0
 ```
 
+### Material 1.x to 2.x
+
+* Material for MkDocs 2.x requires MkDocs 0.17.1, as this version introduced
+  changes to the way themes can define options. The following variables inside
+  your project's `mkdocs.yml` need to be renamed:
+
+    * `extra.feature` becomes `theme.feature`
+    * `extra.palette` becomes `theme.palette`
+    * `extra.font` becomes `theme.font`
+    * `extra.logo` becomes `theme.logo`
+
+* Favicon support has been dropped by MkDocs, it must now be defined in
+  `theme.favicon` (previously `site_favicon`).
+
+* Localization is now separated into theme language and search language. While
+  there can only be a single language on theme-level, the search supports
+  multiple languages which can be separated by commas. See the getting started
+  guide for more guidance.
+
+* The search tokenizer can now be set through `extra.search.tokenizer`.
+
 ## Changelog
+
+### 2.2.0 <small>_ November 22, 2017</small>
+
+* Added support for hero teaser
+* Added Portuguese translations
+* Fixed [#586][586]: Footnote backref target offset regression
+* Fixed [#605][605]: Search stemmers not correctly loaded
+
+  [586]: https://github.com/squidfunk/mkdocs-material/issues/586
+  [605]: https://github.com/squidfunk/mkdocs-material/issues/605
+
+### 2.1.1 <small>_ November 21, 2017</small>
+
+* Replaced deprecated `babel-preset-es2015` with `babel-preset-env`
+* Refactored Gulp build pipeline with Webpack
+* Removed right border on sidebars
+* Fixed broken color transition on header
+
+### 2.1.0 <small>_ November 19, 2017</small>
+
+* Added support for `white` as a primary color
+* Added support for sliding site name and title
+* Fixed redundant clipboard button when using line numbers on code blocks
+* Improved header appearance by making it taller
+* Improved tabs appearance
+* Improved CSS customizability by leveraging inheritance
+* Removed scroll shadows via `background-attachment`
+
+### 2.0.4 <small>_ November 5, 2017</small>
+
+* Fixed `details` not opening with footnote reference
+
+### 2.0.3 <small>_ November 5, 2017</small>
+
+* Added Japanese translations
+* Fixed [#540][540]: Jumping to anchor inside `details` doesn't open it
+* Fixed active link colors in footer
+
+  [540]: https://github.com/squidfunk/mkdocs-material/issues/540
 
 ### 2.0.2 <small>_ November 1, 2017</small>
 

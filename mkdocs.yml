@@ -22,7 +22,7 @@
 site_name: Material for MkDocs
 site_description: A Material Design theme for MkDocs
 site_author: Martin Donath
-site_url: http://squidfunk.github.io/mkdocs-material/
+site_url: https://squidfunk.github.io/mkdocs-material/
 
 # Repository
 repo_name: squidfunk/mkdocs-material
@@ -32,10 +32,14 @@ edit_uri: ""
 # Copyright
 copyright: 'Copyright &copy; 2016 - 2017 Martin Donath'
 
-# Theme directory
+# Configuration
 theme:
   name: null
   custom_dir: material
+
+  # 404 page
+  static_templates:
+    - 404.html
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -44,7 +48,7 @@ theme:
   # Default values, taken from mkdocs_theme.yml
   language: en
   feature:
-    tabs: false
+    tabs: true
   palette:
     primary: stanford
     accent:  stanford
@@ -55,8 +59,7 @@ theme:
   logo:
     icon: "\uE80C"
 
-
-# Options
+# Customization
 extra:
   made_in: Paris, France
   social:
@@ -110,6 +113,7 @@ pages:
   - Specimen: specimen.md
   - Customization: customization.md
   - Release notes: release-notes.md
+  - Author's notes: authors-notes.md
   - Contributing: contributing.md
   - License: license.md
 
@@ -117,7 +121,3 @@ pages:
 google_analytics:
   - !!python/object/apply:os.getenv ["GOOGLE_ANALYTICS_KEY"]
   - auto
-
-# Just for testing
-extra_javascript:
-  - http://ginseng-analytics.com/analytics.js
