@@ -160,7 +160,7 @@ Color names are case-insensitive, but must match the names of the Material
 Design color palette. Valid values are: `red`, `pink`, `purple`, `deep purple`,
 `indigo`, `blue`, `light blue`, `cyan`, `teal`, `green`, `light green`, `lime`,
 `yellow`, `amber`, `orange`, `deep orange`, `brown`, `grey`, `blue grey` and
-`white`. The four three colors can only be used as a primary color.
+`white`. The last four colors can only be used as a primary color.
 
 If the color is set via this configuration, an additional CSS file that
 defines the color palette is automatically included. If you want to keep things
@@ -302,9 +302,9 @@ theme:
 Material for MkDocs supports internationalization (i18n) and provides
 translations for all template variables and labels in English `en`, French `fr`,
 German `de`, Spanish `es`, Italian `it`, Danish `da`, Portugese `pt`,
-Polish `pl`, Norwegian `no`, Swedish `sv`, Korean `kr`, Russian `ru`,
-Japanese `ja`, Chinese (Simplified) `zh` and Chinese (Traditional) `zh-Hant`.
-Specify the language with:
+Polish `pl`, Norwegian `no`, Dutch `nl`, Swedish `sv`, Korean `kr`,
+Russian `ru`, Japanese `ja`, Chinese (Simplified) `zh` and Chinese (Traditional)
+`zh-Hant`. Specify the language with:
 
 ``` yaml
 theme:
@@ -382,7 +382,7 @@ The default favicon can be changed by setting the `favicon` variable to an
 
 ``` yaml
 theme:
-  favicon: 'assets/mages/favicon.ico'
+  favicon: 'assets/images/favicon.ico'
 ```
 
 ### Features

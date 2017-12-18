@@ -1,3 +1,18 @@
+mkdocs-material-2.2.4 (2017-12-18)
+
+  * Fixed #638: Build breaks with Jinja < 2.9
+
+mkdocs-material-2.2.3 (2017-12-13)
+
+  * Fixed #630: Admonition sets padding on any last child
+  * Adjusted Chinese (Traditional) translations
+
+mkdocs-material-2.2.2 (2017-12-08)
+
+  * Added Dutch translations
+  * Adjusted targeted link and footnote offsets
+  * Simplified Admonition styles and fixed padding bug
+
 mkdocs-material-2.2.1 (2017-12-02)
 
   * Fixed #616: Minor styling error with title-only admonition blocks
