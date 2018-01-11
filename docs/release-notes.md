@@ -12,7 +12,7 @@ To determine the currently installed version, use the following command:
 
 ``` sh
 pip show mkdocs-material | grep -E ^Version
-# Version 2.2.4
+# Version 2.4.0
 ```
 
 ### Material 1.x to 2.x
@@ -37,6 +37,37 @@ pip show mkdocs-material | grep -E ^Version
 * The search tokenizer can now be set through `extra.search.tokenizer`.
 
 ## Changelog
+
+### 2.4.0 <small>_ January 11, 2018</small>
+
+* Added focus state for clipboard buttons
+* Fixed [#400][400]: Search bar steals tab focus
+* Fixed search not closing on ++enter++ when result is selected
+* Fixed search not closing when losing focus due to ++tab++
+* Fixed collapsed navigation links getting focus
+* Fixed `outline` being cut off on ++tab++ focus of navigation links
+* Fixed bug with first search result navigation being ignored
+* Removed search result navigation via ++tab++ (use ++up++ and ++down++)
+* Removed `outline` resets for links
+* Improved general tabbing behavior on desktop
+
+  [400]: https://github.com/squidfunk/mkdocs-material/issues/400
+
+### 2.3.0 <small>_ January 9, 2018</small>
+
+* Added `example` (synonym: `snippet`) style for Admonition
+* Added synonym `abstract` for `summary` style for Admonition
+
+### 2.2.6 <small>_ December 27, 2017</small>
+
+* Added Turkish translations
+* Fixed unclickable area below header in case JavaScript is not available
+
+### 2.2.5 <small>_ December 18, 2017</small>
+
+* Fixed [#639][639]: Broken default favicon
+
+  [639]: https://github.com/squidfunk/mkdocs-material/issues/639
 
 ### 2.2.4 <small>_ December 18, 2017</small>
 

@@ -298,6 +298,32 @@ function initialize(config) { // eslint-disable-line func-style
       })
   })).listen()
 
+  /* Listener: handle tabbing context for better accessibility */
+  new Material.Event.Listener(document.body, "keydown", ev => {
+    if (ev.keyCode === 9) {
+      const labels = document.querySelectorAll(
+        "[data-md-component=navigation] .md-nav__link[for]:not([tabindex])")
+      Array.prototype.forEach.call(labels, label => {
+        if (label.offsetHeight)
+          label.tabIndex = 0
+      })
+    }
+  }).listen()
+
+  /* Listener: reset tabbing behavior */
+  new Material.Event.Listener(document.body, "mousedown", () => {
+    const labels = document.querySelectorAll(
+      "[data-md-component=navigation] .md-nav__link[tabindex]")
+    Array.prototype.forEach.call(labels, label => {
+      label.removeAttribute("tabIndex")
+    })
+  }).listen()
+
+  document.body.addEventListener("click", () => {
+    if (document.body.dataset.mdState === "tabbing")
+      document.body.dataset.mdState = ""
+  })
+
   /* Listener: close drawer when anchor links are clicked */
   new Material.Event.MatchMedia("(max-width: 959px)",
     new Material.Event.Listener("[data-md-component=navigation] [href^='#']",
@@ -381,8 +407,8 @@ function initialize(config) { // eslint-disable-line func-style
           }
         }
 
-      /* Escape: close search */
-      } else if (ev.keyCode === 27) {
+      /* Escape or Tab: close search */
+      } else if (ev.keyCode === 9 || ev.keyCode === 27) {
         toggle.checked = false
         toggle.dispatchEvent(new CustomEvent("change"))
         query.blur()
@@ -392,10 +418,9 @@ function initialize(config) { // eslint-disable-line func-style
         if (query !== document.activeElement)
           query.focus()
 
-      /* Vertical arrows and tab: select previous or next search result */
-      } else if ([9, 38, 40].indexOf(ev.keyCode) !== -1) {
-        const map = ev.shiftKey ? 38 : 40
-        const key = ev.keyCode === 9 ? map : ev.keyCode
+      /* Vertical arrows: select previous or next search result */
+      } else if ([38, 40].indexOf(ev.keyCode) !== -1) {
+        const key = ev.keyCode
 
         /* Retrieve all results */
         const links = Array.prototype.slice.call(

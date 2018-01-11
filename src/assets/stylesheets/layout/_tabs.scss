@@ -108,6 +108,7 @@
     // font-size to zero, as we need to preserve bottom padding
     ~ .md-main .md-nav--primary > .md-nav__list > .md-nav__item--nested {
       font-size: 0;
+      visibility: hidden;
     }
 
     // We're on the 2nd+ level
@@ -115,6 +116,12 @@
 
       // Adjust 1st level styles
       .md-nav--primary {
+
+        // Show title and remove spacing
+        .md-nav__title {
+          display: block;
+          padding: 0;
+        }
 
         // Hide site title
         .md-nav__title--site {
@@ -124,23 +131,18 @@
         // Hide 1st level normal items
         & > .md-nav__list > .md-nav__item {
           font-size: 0;
+          visibility: hidden;
 
           // Reset font-size for nested items and induce margin collapse
           &--nested {
             display: none;
             font-size: 1.4rem;
             overflow: auto;
+            visibility: visible;
 
-            // Render link same as main navigation title
+            // Hide nested links
             > .md-nav__link {
-              margin-top: 0;
-              font-weight: 700;
-              pointer-events: none;
-
-              // Hide icon for expansion
-              &::after {
-                display: none;
-              }
+              display: none;
             }
           }
 
@@ -154,10 +156,16 @@
       // Always expand nested navigation on 2nd level
       .md-nav[data-md-level="1"] {
         max-height: initial;
+        overflow: visible;
 
         // Remove left spacing on 2nd level items
         > .md-nav__list > .md-nav__item {
           padding-left: 0;
+        }
+
+        // Hide titles from 2nd level on
+        .md-nav .md-nav__title {
+          display: none;
         }
       }
     }
