@@ -8,11 +8,10 @@ To upgrade Material to the latest version, use pip:
 pip install --upgrade mkdocs-material
 ```
 
-To determine the currently installed version, use the following command:
+To inspect the currently installed version, use the following command:
 
 ``` sh
-pip show mkdocs-material | grep -E ^Version
-# Version 2.5.0
+pip show mkdocs-material
 ```
 
 ### Material 1.x to 2.x
@@ -37,6 +36,61 @@ pip show mkdocs-material | grep -E ^Version
 * The search tokenizer can now be set through `extra.search.tokenizer`.
 
 ## Changelog
+
+### 2.6.2 <small>_ February 12, 2018</small>
+
+* Added Arabic translations
+* Fixed incorrect rounding of amount of GitHub stars
+* Fixed double-layered borders for tables
+
+### 2.6.1 <small>_ February 11, 2018</small>
+
+* Fixed [#690][690]: Duplicate slashes in source file URLs
+* Fixed [#696][696]: Active page highlight not working with default palette
+* Added ability to override Disqus integration using metadata
+* Adjusted German translations
+
+  [690]: https://github.com/squidfunk/mkdocs-material/issues/690
+  [696]: https://github.com/squidfunk/mkdocs-material/issues/696
+
+### 2.6.0 <small>_ February 2, 2018</small>
+
+* Moved default search configuration to default translation (English)
+* Added support to automatically set text direction from translation
+* Added support to disable search stop word filter in translation
+* Added support to disable search trimmer in translation
+* Added Persian translations
+* Fixed support for Polish search
+* Fixed disappearing GitHub, GitLab and Bitbucket repository icons
+
+### 2.5.5 <small>_ January 31, 2018</small>
+
+* Added Hungarian translations
+
+### 2.5.4 <small>_ January 29, 2018</small>
+
+* Fixed [#683][683]: `gh-deploy` fails inside Docker
+
+  [683]: https://github.com/squidfunk/mkdocs-material/issues/683
+
+### 2.5.3 <small>_ January 25, 2018</small>
+
+* Added Ukrainian translations
+
+### 2.5.2 <small>_ January 22, 2018</small>
+
+* Added default search language mappings for all localizations
+* Fixed [#673][673]: Error loading non-existent search language
+* Fixed [#675][675]: Uncaught reference error when search plugin disabled
+
+  [673]: https://github.com/squidfunk/mkdocs-material/issues/673
+  [675]: https://github.com/squidfunk/mkdocs-material/issues/675
+
+### 2.5.1 <small>_ January 20, 2018</small>
+
+* Fixed permalink for main headline
+* Improved missing translation handling with English as a fallback
+* Improved accessibility with skip-to-content link
 
 ### 2.5.0 <small>_ January 13, 2018</small>
 

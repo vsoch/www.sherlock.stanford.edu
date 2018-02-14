@@ -1,5 +1,5 @@
 ////
-/// Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
+/// Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a
 /// copy of this software and associated documentation files (the "Software"),
@@ -55,13 +55,9 @@
     }
   }
 
-  // Hide anchor for top-level heading, as it makes no sense
-  h1[id] .headerlink {
-    display: none;
-  }
-
   // Correct anchor offset for link blurring
   @each $level, $delta in (
+    h1: 0.9rem,
     h2: 0.8rem,
     h3: 0.9rem,
     h4: 0.9rem,

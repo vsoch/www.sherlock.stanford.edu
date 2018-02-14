@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
+ * Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -156,6 +156,20 @@ module.exports = env => {
               /* Write theme version into template */
               .replace("$md-name$", metadata.name)
               .replace("$md-version$", metadata.version)
+
+              /* Write available search languages into template */
+              .replace("$md-lunr-languages$",
+                fs.readdirSync(
+                  path.resolve(__dirname, "node_modules/lunr-languages")
+                ).reduce((files, file) => {
+                  const matches = file.match(/lunr.(\w{2}).js$/)
+                  if (matches) {
+                    const [, language] = matches
+                    files.push(`"${language}"`)
+                  }
+                  return files
+                }, [])
+                  .join(", "))
           }
         }
       ]),
@@ -267,11 +281,17 @@ module.exports = env => {
       /* Minify images */
       new ImageminPlugin({
         test: /\.(ico|png|svg)$/i,
-        svgo: {
-          plugins: [
-            { cleanupIDs: false }
-          ]
-        }
+        svgo: null
+        // Hack: Temporarily disabled, as SVGO removes the viewbox property
+        // and setting the plugin to false doesn't have any effect.
+        // {
+        //   plugins: [
+        //     {
+        //       cleanupIDs: false,
+        //       removeViewBox: false
+        //     }
+        //   ]
+        // }
       }),
 
       /* Write manifest */

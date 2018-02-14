@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
+ * Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to
@@ -90,10 +90,8 @@ export default class Abstract {
    * @return {string} Formatted number
    */
   format_(number) {
-    if (number > 10000)
-      return `${(number / 1000).toFixed(0)}k`
-    else if (number > 1000)
-      return `${(number / 1000).toFixed(1)}k`
+    if (number >= 1000)
+      return `${(number / 1000).toFixed(number % 1000 > 99)}k`
     return `${number}`
   }
 

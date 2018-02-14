@@ -1,5 +1,5 @@
 <!--
-  Copyright (c) 2016-2017 Martin Donath <martin.donath@squidfunk.com>
+  Copyright (c) 2016-2018 Martin Donath <martin.donath@squidfunk.com>
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to
@@ -49,11 +49,13 @@
   });
 
   /* Register handler to log search on blur */
-  var query = document.forms.search.query;
-  query.addEventListener("blur", function() {
-    if (this.value) {
-      var path = document.location.pathname;
-      ga("send", "pageview", path + "?q=" + this.value);
-    }
-  });
+  if (document.forms.search) {
+    var query = document.forms.search.query;
+    query.addEventListener("blur", function() {
+      if (this.value) {
+        var path = document.location.pathname;
+        ga("send", "pageview", path + "?q=" + this.value);
+      }
+    });
+  }
 </script>

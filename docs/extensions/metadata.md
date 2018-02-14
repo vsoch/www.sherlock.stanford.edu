@@ -1,4 +1,4 @@
-hero: Yes, this is set via Metadata
+hero: Metadata enables hero teaser texts
 path: tree/master/docs/extensions
 source: metadata.md
 
@@ -46,32 +46,8 @@ Material exposes a simple text-only page-local hero via Metadata, as you can
 see on the current page when you scroll to the top. It's as simple as:
 
 ``` markdown
-hero: Yes, this is set via Metadata
+hero: Metadata enables hero teaser texts
 ```
-
-### Overriding the title
-
-The page title can be overridden on a per-document level:
-
-``` markdown
-title: Lorem ipsum dolor sit amet
-```
-
-This will set the `title` tag inside the document `head` for the current page
-to the provided value. It will also override the default behavior of Material
-for MkDocs which appends the site title using a dash as a separator to the page
-title.
-
-### Overriding the description
-
-The page description can also be overridden on a per-document level:
-
-``` yaml
-description: Nullam urna elit, malesuada eget finibus ut, ac tortor.
-```
-
-This will set the `meta` tag containing the site description inside the
-document `head` for the current page to the provided value.
 
 ### Linking sources
 
@@ -98,3 +74,46 @@ Result:
 See the [source][2] section for the resulting output.
 
   [2]: #__source
+
+### Overrides
+
+#### Page title
+
+The page title can be overridden on a per-document level:
+
+``` markdown
+title: Lorem ipsum dolor sit amet
+```
+
+This will set the `title` tag inside the document `head` for the current page
+to the provided value. It will also override the default behavior of Material
+for MkDocs which appends the site title using a dash as a separator to the page
+title.
+
+#### Page description
+
+The page description can also be overridden on a per-document level:
+
+``` yaml
+description: Nullam urna elit, malesuada eget finibus ut, ac tortor.
+```
+
+This will set the `meta` tag containing the site description inside the
+document `head` for the current page to the provided value.
+
+#### Disqus
+
+As describe in the [getting started guide][3], the Disqus comments section can
+be enabled on a per-document level:
+
+``` markdown
+disqus: your-shortname
+```
+
+Disqus can be disabled for a specific page by setting it to an empty value:
+
+``` markdown
+disqus:
+```
+
+  [3]: ../getting-started.md#disqus

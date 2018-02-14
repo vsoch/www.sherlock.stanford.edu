@@ -1,6 +1,11 @@
 # Material <small>for MkDocs</small>
 
-## Beautiful project documentation
+!!! info "Call for Contributions: Add languages/translations to Material"
+
+    Help translate Material into more languages - it's just **one click** and
+    takes approximately **2 minutes**: [click here](http://bit.ly/2EbzFc8)
+
+## Create beautiful project documentation
 
 Material is a theme for [MkDocs][1], an excellent static site generator geared
 towards project documentation. It is built using Google's [Material Design][2]
@@ -29,7 +34,7 @@ theme:
 ## What to expect
 
 * Responsive design and fluid layout for all kinds of screens and devices,
-  designed to serve your project documentation in a user-friendly way in 17
+  designed to serve your project documentation in a user-friendly way in 21
   languages with optimal readability.
 
 * Easily customizable primary and accent color, fonts, favicon and logo;
