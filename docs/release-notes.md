@@ -2,7 +2,7 @@
 
 ## Upgrading
 
-To upgrade Material to the latest version, use pip:
+To upgrade Material to the latest version, use `pip`:
 
 ``` sh
 pip install --upgrade mkdocs-material
@@ -37,6 +37,29 @@ pip show mkdocs-material
 
 ## Changelog
 
+### 2.6.6 <small>_ February 22, 2018</small>
+
+* Added preconnect for Google Fonts for faster loading
+* Fixed [#710][710]: With tabs sidebar disappears if JavaScript is not available
+
+  [710]: https://github.com/squidfunk/mkdocs-material/issues/710
+
+### 2.6.5 <small>_ February 22, 2018</small>
+
+* Reverted `--dev-addr` flag removal from `Dockerfile`
+
+### 2.6.4 <small>_ February 21, 2018</small>
+
+* Added Catalan translations
+* Fixed incorrect margins for buttons in Firefox and Safari
+* Replaced package manager `yarn` with `npm 5.6`
+* Reverted GitHub stars rounding method
+* Removed `--dev-addr` flag from `Dockerfile` for Windows compatibility
+
+### 2.6.3 <small>_ February 18, 2018</small>
+
+* Added Vietnamese translations
+
 ### 2.6.2 <small>_ February 12, 2018</small>
 
 * Added Arabic translations
@@ -45,9 +68,9 @@ pip show mkdocs-material
 
 ### 2.6.1 <small>_ February 11, 2018</small>
 
+* Added ability to override Disqus integration using metadata
 * Fixed [#690][690]: Duplicate slashes in source file URLs
 * Fixed [#696][696]: Active page highlight not working with default palette
-* Added ability to override Disqus integration using metadata
 * Adjusted German translations
 
   [690]: https://github.com/squidfunk/mkdocs-material/issues/690
