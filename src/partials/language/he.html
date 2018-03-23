@@ -20,27 +20,26 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Set from config but allow override -->
-{% set disqus = config.extra.disqus %}
-{% if page and page.meta and page.meta.disqus is string %}
-  {% set disqus = page.meta.disqus %}
-{% endif %}
-
-<!-- Disqus integration -->
-{% if not page.is_homepage and disqus %}
-  <h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "{{ page.canonical_url }}";
-      this.page.identifier =
-        "{{ page.canonical_url | replace(config.site_url, "") }}";
-    };
-    (function() {
-      var d = document, s = d.createElement("script");
-      s.src = "//{{ disqus }}.disqus.com/embed.js";
-      s.setAttribute("data-timestamp", +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-{% endif %}
+<!-- Translations: Hebrew -->
+{% macro t(key) %}{{ {
+  "language": "he",
+  "direction": "rtl",
+  "clipboard.copy": "העתק ללוח",
+  "clipboard.copied": "הועתק ללוח",
+  "edit.link.title": "ערוך דף זה",
+  "footer.previous": "קודם",
+  "footer.next": "הַבָּא",
+  "meta.comments": "הערות",
+  "meta.source": "מָקוֹר",
+  "search.language": "",
+  "search.pipeline.stopwords": false,
+  "search.pipeline.trimmer": false,
+  "search.placeholder": "לחפש",
+  "search.result.placeholder": "הקלד כדי להתחיל לחפש",
+  "search.result.none": "אין מסמכים תואמים",
+  "search.result.one": "1 מסמך תואם",
+  "search.result.other": "# מסמך תואם",
+  "skip.link.title": "דלג לתוכן",
+  "source.link.title": "עבור אל מאגר",
+  "toc.title": "תוכן העניינים"
+}[key] }}{% endmacro %}

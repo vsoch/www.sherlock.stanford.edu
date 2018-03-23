@@ -298,6 +298,11 @@ theme:
 
 ### Language
 
+!!! info "Call for Contributions: Add languages/translations to Material"
+
+    Help translate Material into more languages - it's just **one click** and
+    takes approximately **2 minutes**: [click here](http://bit.ly/2EbzFc8)
+
 #### Localization
 
 > Default: `en`
@@ -321,29 +326,31 @@ translations for all template variables and labels in the following languages:
     <tr>
       <td><code>en</code> / English</td>
       <td><code>fr</code> / French</td>
+      <td><code>fr</code> / Galician</td>
       <td><code>de</code> / German</td>
-      <td><code>hu</code> / Hungarian</td>
     </tr>
     <tr>
+      <td><code>he</code> / Hebrew</td>
+      <td><code>hu</code> / Hungarian</td>
       <td><code>it</code> / Italian</td>
       <td><code>ja</code> / Japanese</td>
+    </tr>
+    <tr>
       <td><code>kr</code> / Korean</td>
       <td><code>no</code> / Norwegian</td>
-    </tr>
-    <tr>
       <td><code>fa</code> / Persian</td>
       <td><code>pl</code> / Polish</td>
+    </tr>
+    <tr>
       <td><code>pt</code> / Portugese</td>
       <td><code>ru</code> / Russian</td>
-    </tr>
-    <tr>
       <td><code>es</code> / Spanish</td>
       <td><code>sv</code> / Swedish</td>
-      <td><code>tr</code> / Turkish</td>
-      <td><code>uk</code> / Ukrainian</td>
     </tr>
     <tr>
-      <td colspan="4"><code>vi</code> / Vietnamese</td>
+      <td><code>tr</code> / Turkish</td>
+      <td><code>uk</code> / Ukrainian</td>
+      <td colspan="2"><code>vi</code> / Vietnamese</td>
     </tr>
     <tr>
       <td colspan="2">
@@ -353,7 +360,6 @@ translations for all template variables and labels in the following languages:
         <code>zh-Hant</code> / Chinese (Traditional)
       </td>
     </tr>
-    <tr>
     <tr>
       <td colspan="4" align="right">
         <a href="http://bit.ly/2EbzFc8">Submit a new language</a>
@@ -378,9 +384,6 @@ all translations:
 ``` sh
 cp partials/language/en.html partials/language/jp.html
 ```
-
-Feel free to contribute your localization to Material for MkDocs by opening a
-Pull Request.
 
   [16]: https://www.w3schools.com/tags/ref_language_codes.asp
 
