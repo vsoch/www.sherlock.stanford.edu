@@ -20,7 +20,6 @@ Some software is required to build the theme:
 | Software | Installation |
 | --- | --- |
 | [Node.js](https://nodejs.org/en/) | https://nodejs.org/en/download/ |
-| [Yarn](https://yarnpkg.com/en/) | https://yarnpkg.com/en/docs/install |
 
 ### Modifying
 
@@ -33,12 +32,12 @@ To modify the source files, you'll need to:
 2. install the required dependencies with:
    ```
    $ pip install -r requirements.txt
-   $ yarn install
+   $ npm install
    ```
 
 3. start the development server
    ```
-   $ yarn start
+   $ npm run watch
    ```
    This will start a development server at http://127.0.0.1:8000
 
