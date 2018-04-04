@@ -1,5 +1,5 @@
 # Sherlock documentation theme
-[![Build Status](https://travis-ci.com/stanford-rc/sherlock.svg?token=uginarQXUTdAZXLFvqnS&branch=web_theme)](https://travis-ci.com/stanford-rc/sherlock)
+[![Build Status](https://travis-ci.com/stanford-rc/www.sherlock.stanford.edu.svg?token=uginarQXUTdAZXLFvqnS&branch=theme)](https://travis-ci.com/stanford-rc/www.sherlock.stanford.edu)
 
 This branch of the Sherlock repository contains the source files necessary to build the Sherlock documentation theme for http://www.sherlock.stanford.edu/docs
 It's based on the [Mkdocs Material](http://squidfunk.github.io/mkdocs-material/) theme.
@@ -25,9 +25,9 @@ Some software is required to build the theme:
 
 To modify the source files, you'll need to:
 
-1. clone the `web_theme` branch of Sherlock repo on your local machine:
+1. clone the `theme` branch of Sherlock repo on your local machine:
    ```
-   $ git clone https://github.com/stanford-rc/sherlock.git --branch web_theme --single-branch
+   $ git clone https://github.com/stanford-rc/www.sherlock.stanford.edu.git --branch theme --single-branch
    ```
 2. install the required dependencies with:
    ```
@@ -64,7 +64,7 @@ Once you're satisifed with the results, you can build the static files with:
 ```
 $ yarn run build
 ```
-This will generate the theme files in `/material`, which can then be copied in the documentation source tree ([`/theme`](https://github.com/stanford-rc/sherlock/tree/web_docs/theme) in the [`web_docs`](https://github.com/stanford-rc/sherlock/tree/web_docs) branch)
+This will generate the theme files in `/material`, which can then be copied in the documentation source tree ([`/theme`](https://github.com/stanford-rc/www.sherlock.stanford.edu/tree/docs/theme) in the [`docs`](https://github.com/stanford-rc/www.sherlock.stanford.edu/tree/docs) branch)
 
 Don't forget to commit the changes!
 ```
@@ -73,10 +73,10 @@ $ git commit
 
 ### Deploying
 
-Deployment should happen automatically when a change is committed on GitHub. Travis CI will take [care](https://github.com/stanford-rc/sherlock/blob/web_theme/.travis.yml) of the following steps:
+Deployment should happen automatically when a change is committed on GitHub. Travis CI will take [care](https://github.com/stanford-rc/www.sherlock.stanford.edu/blob/theme/.travis.yml) of the following steps:
   * build the theme from the freshly-committed source files,
-  * checkout the `web_docs` branch
-  * copy the compiled theme to the theme directory (`theme/`) in the `web_docs` branch
-  * commit the changes in the `web_docs` branch
+  * checkout the `docs` branch
+  * copy the compiled theme to the theme directory (`theme/`) in the `docs` branch
+  * commit the changes in the `docs` branch
 
 If everything goes well, the automated Travis CI commit should trigger a new build of the whole documentation, with the updated theme, and a deployment to the website.
