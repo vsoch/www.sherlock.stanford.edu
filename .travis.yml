@@ -2,20 +2,20 @@
 #
 # config
 #
-# ---------------------------------------------------------------------------- 
+# ----------------------------------------------------------------------------
 
 sudo: false
 language: node_js
 
-# we only care about the web_theme branch
+# we only care about the theme branch
 branches:
     only:
-        - web_landing
+        - landing
 
 # notify srcc#github
 notifications:
     slack:
-        secure: "5LH3JMgre8bvoyVXvZs/TF5oWUiAAUTiRrLJ9g+2D63QlXtDt82PCf/wnzx16xiIaNk26IzmEs5McvDSoAH2eaHxOBa20zlHqxnZiy0nqQTP1QT6yxVMBXt95FaEbvptqmsD60PovacY563o5Cmp0JfhdHuJAy/kE+oNkgzYbiuliLTx1qJAidIvKaEaglVMQG9UzKk+5mtW33K/a2EKMI8I45whmloEnBjHjkhAqBA93nn6l6f+HAfLSsVGjxL4p95Nvi/Te9q/4VTmPleZLQoXDTKF9/IaASu1wBEZPkF1R5/sdtYxsp9UZv/G63aPwBQ7ZvpzuRDU/Hs40R3LFUW2mbYgTPloUpOygnVRxFIpiVYFDQs/HvcILN2d21+9yCn0Kb2Xbqk1l43hh9I0VkSSRnJx6whPZ3yBepbJusQq0nQGe+VET8sL38zsCBc2d3DnEK1vYgwohe3tMEpu/BXFcL7+rHHQAj/+XOwsDZdRO+uGfL+Eb52286tsSxlA3BcM7TX2BGwdSAQOX+fJQ9QHRcN0oB3KUcXCydgEJwi7uVuU6LTcvdvb1oa7jdFqvNkdqOtHtom03gdsNxhK7d0rD+pKS0y0htR/mfcbMlreFfQ35fzX//C+QQI6lYioc/uPVutjJ5QZKwy4Bsf6yL90jeSNpzgb/NcTx/Y0BV4="
+        secure: b8qQVB4C8u0pOBh8M/+jeNl5B9aIJB0VyxmOCVRn5AT8RAlnj805eY+RAq1THSIwPGJXeQ5lY3tLKXvRGSp3bfjY5DSrSloJS879WL4BCMzOT+o+v+YQzkICn5E5x+Sz4C/PWScR4UR9iUSTb37PAYCPATc9l/+hI/XO2jNBi0hDOWOYVfd1erGPMJOGBhJCfz0gdu5ULJ5QLbvjGIWXfOgsHG/DRfEMvnpuaW1Gi+g+RFeA1II0ZN/44n2UENiM+nmJTcjmQaJ+6yBxxXmWwIgKc4SqI4zoHIkz3Zck88m4RIe7tzj5HHwI/T6h7G5FJPojbL6J9YWqceSZF+q0VwLgVitStrDsGG34eVxQG1Cp5p8rltHGSjr2kGpdb7Nh9IOV2C6FcfoyY8X3ZrGGfzN3RwNO6nFNtEJ4MN1yJRrmOClJmDIGolloNwUpTr6ZgzhOC07ydNX6oTqj4gqCxqYmGX07oc2sCN1nwb5WPtQXpkafYTThUnKVunoomrps+EOCNjL6j3g/TYo9w1rKxnnUA2mxuRlDYGn2PcMs8RJOpbFkDIX7EYyEIiLAI0H8PUUHgsdC6kX9z6W91RXCV7scxLi0xNFZ4l/9Relg7YfGwQjCJNcU4um1BZonEVpqosht5PU3moqdIvxdVOIn5avJ9nqJLzi+Ic8bBnO6eWo=
 
 
 # ----------------------------------------------------------------------------
@@ -49,7 +49,7 @@ before_install:
 
 # install dependencies
 install:
-    - npm install 
+    - npm install
 
 # build
 script:
@@ -63,19 +63,19 @@ script:
 # ----------------------------------------------------------------------------
 
 # deploy
-#   fetch web_docs and copy contents of material/ there, then commit and push
+#   fetch docs and copy contents of material/ there, then commit and push
 after_success:
     - |
       # git config (global since we'll change repos to commit)
       git config --global user.email "travis@travis-ci.com"
       git config --global user.name  "Travis CI"
       git config --global push.default simple
-      # fetch web_docs
-      git clone https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git --branch web_docs --single-branch /tmp/web_docs/
+      # fetch docs
+      git clone https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git --branch docs --single-branch /tmp/docs/
       # copy output there
-      rsync -avP build/ /tmp/web_docs/src/
+      rsync -avP build/ /tmp/docs/src/
       # commit+push changes
-      cd /tmp/web_docs/
+      cd /tmp/docs/
       git add -A src/
       git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
 
