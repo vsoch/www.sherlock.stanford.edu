@@ -1,5 +1,5 @@
 # Sherlock landing webpage
-[![Build Status](https://travis-ci.com/stanford-rc/www.sherlock.stanford.edu.svg?token=uginarQXUTdAZXLFvqnS&branch=landing)](https://travis-ci.com/stanford-rc/www.sherlock.stanford.edu)
+[![Build Status](https://travis-ci.org/stanford-rc/www.sherlock.stanford.edu.svg?branch=landing)](https://travis-ci.com/stanford-rc/www.sherlock.stanford.edu)
 
 This branch of the Sherlock repository contains the source files necessary to build the Sherlock landing webpage at http://www.sherlock.stanford.edu
 It's loosely based on the [Agency](http://startbootstrap.com/template-overviews/agency/) [Bootstrap](http://getbootstrap.com/) template.
