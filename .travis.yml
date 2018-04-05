@@ -71,7 +71,7 @@ after_success:
       git config --global user.name  "Travis CI"
       git config --global push.default simple
       # fetch docs
-      git clone https://${DEPLOY_KEY}@github.com/stanford-rc/sherlock.git --branch docs --single-branch /tmp/docs/
+      git clone https://${DEPLOY_KEY}@github.com/stanford-rc/www.sherlock.stanford.edu.git --branch docs --single-branch /tmp/docs/
       # copy output there
       rsync -avP build/ /tmp/docs/src/
       # commit+push changes
