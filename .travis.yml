@@ -9,13 +9,13 @@ language: node_js
 
 # we only care about the theme branch
 branches:
-    only:
-        - theme
+  only:
+    - theme
 
 # notify srcc#github
 notifications:
-    slack:
-        secure: b8qQVB4C8u0pOBh8M/+jeNl5B9aIJB0VyxmOCVRn5AT8RAlnj805eY+RAq1THSIwPGJXeQ5lY3tLKXvRGSp3bfjY5DSrSloJS879WL4BCMzOT+o+v+YQzkICn5E5x+Sz4C/PWScR4UR9iUSTb37PAYCPATc9l/+hI/XO2jNBi0hDOWOYVfd1erGPMJOGBhJCfz0gdu5ULJ5QLbvjGIWXfOgsHG/DRfEMvnpuaW1Gi+g+RFeA1II0ZN/44n2UENiM+nmJTcjmQaJ+6yBxxXmWwIgKc4SqI4zoHIkz3Zck88m4RIe7tzj5HHwI/T6h7G5FJPojbL6J9YWqceSZF+q0VwLgVitStrDsGG34eVxQG1Cp5p8rltHGSjr2kGpdb7Nh9IOV2C6FcfoyY8X3ZrGGfzN3RwNO6nFNtEJ4MN1yJRrmOClJmDIGolloNwUpTr6ZgzhOC07ydNX6oTqj4gqCxqYmGX07oc2sCN1nwb5WPtQXpkafYTThUnKVunoomrps+EOCNjL6j3g/TYo9w1rKxnnUA2mxuRlDYGn2PcMs8RJOpbFkDIX7EYyEIiLAI0H8PUUHgsdC6kX9z6W91RXCV7scxLi0xNFZ4l/9Relg7YfGwQjCJNcU4um1BZonEVpqosht5PU3moqdIvxdVOIn5avJ9nqJLzi+Ic8bBnO6eWo=
+  slack:
+    secure: b8qQVB4C8u0pOBh8M/+jeNl5B9aIJB0VyxmOCVRn5AT8RAlnj805eY+RAq1THSIwPGJXeQ5lY3tLKXvRGSp3bfjY5DSrSloJS879WL4BCMzOT+o+v+YQzkICn5E5x+Sz4C/PWScR4UR9iUSTb37PAYCPATc9l/+hI/XO2jNBi0hDOWOYVfd1erGPMJOGBhJCfz0gdu5ULJ5QLbvjGIWXfOgsHG/DRfEMvnpuaW1Gi+g+RFeA1II0ZN/44n2UENiM+nmJTcjmQaJ+6yBxxXmWwIgKc4SqI4zoHIkz3Zck88m4RIe7tzj5HHwI/T6h7G5FJPojbL6J9YWqceSZF+q0VwLgVitStrDsGG34eVxQG1Cp5p8rltHGSjr2kGpdb7Nh9IOV2C6FcfoyY8X3ZrGGfzN3RwNO6nFNtEJ4MN1yJRrmOClJmDIGolloNwUpTr6ZgzhOC07ydNX6oTqj4gqCxqYmGX07oc2sCN1nwb5WPtQXpkafYTThUnKVunoomrps+EOCNjL6j3g/TYo9w1rKxnnUA2mxuRlDYGn2PcMs8RJOpbFkDIX7EYyEIiLAI0H8PUUHgsdC6kX9z6W91RXCV7scxLi0xNFZ4l/9Relg7YfGwQjCJNcU4um1BZonEVpqosht5PU3moqdIvxdVOIn5avJ9nqJLzi+Ic8bBnO6eWo=
 
 
 # ----------------------------------------------------------------------------
@@ -29,36 +29,36 @@ node_js: 8
 
 # limit clone depth to 5, to speed up build
 git:
-    depth: 5
+  depth: 5
 
 # cache dependencies
 cache:
   pip: true
   directories:
-    - node_modules
+  - node_modules
 
 # install yarn before anything else
 before_install:
-    - |
-      # check that we actually need to build anything
-      if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-          TRAVIS_COMMIT_RANGE="FETCH_HEAD...$TRAVIS_BRANCH"
-      fi
-      git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(\.md$)|(^(\.git|\.editor|doc|material|site|scripts|CHANGELOG|LICENSE))/' || {
-          echo "Only non-source files were updated, no need to trigger a build."
-          exit
-      }
-    - npm install -g yarn@v0.22.0
+  - |
+    # check that we actually need to build anything
+    if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
+      TRAVIS_COMMIT_RANGE="FETCH_HEAD...$TRAVIS_BRANCH"
+    fi
+    git diff --name-only $TRAVIS_COMMIT_RANGE | grep -qvE '(\.md$)|(^(\.git|\.editor|doc|material|site|scripts|CHANGELOG|LICENSE))/' || {
+      echo "Only non-source files were updated, no need to trigger a build."
+      exit
+    }
+  - npm install -g yarn@v0.22.0
 
 # install dependencies
 install:
-    - npm install
-    - pip install --user -r requirements.txt
+  - npm install
+  - pip install --user -r requirements.txt
 
 # build
 script:
-    - npm run lint
-    - npm run build
+  - npm run lint
+  - npm run build
 
 
 # ----------------------------------------------------------------------------
@@ -70,20 +70,20 @@ script:
 # deploy
 #   fetch docs and copy contents of material/ there, then commit and push
 after_success:
-    - |
-      # git config (global since we'll change repos to commit)
-      git config --global user.email "travis@travis-ci.org"
-      git config --global user.name  "Travis CI"
-      git config --global push.default simple
-      # fetch docs
-      git clone https://${DEPLOY_KEY}@github.com/stanford-rc/www.sherlock.stanford.edu.git --branch docs --single-branch /tmp/docs/
-      # copy output there
-      rsync -avP --delete material/ /tmp/docs/theme/
-      # commit+push changes
-      cd /tmp/docs/
-      git add -A theme/
-      git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
+  - |
+    # git config (global since we'll change repos to commit)
+    git config --global user.email "travis@travis-ci.org"
+    git config --global user.name  "Travis CI"
+    git config --global push.default simple
+    # fetch docs
+    git clone https://${DEPLOY_KEY}@github.com/stanford-rc/www.sherlock.stanford.edu.git --branch docs --single-branch /tmp/docs/
+    # copy output there
+    rsync -avP --delete material/ /tmp/docs/theme/
+    # commit+push changes
+    cd /tmp/docs/
+    git add -A theme/
+    git commit -m "Travis deploy from $TRAVIS_BRANCH to $(git rev-parse --abbrev-ref HEAD): ${TRAVIS_COMMIT:0:7}
 
-      Travis build: $TRAVIS_BUILD_NUMBER"
-      git push
+    Travis build: $TRAVIS_BUILD_NUMBER"
+    git push
 
