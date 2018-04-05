@@ -1,8 +1,11 @@
 # Sherlock landing webpage
 [![Build Status](https://travis-ci.org/stanford-rc/www.sherlock.stanford.edu.svg?branch=landing)](https://travis-ci.org/stanford-rc/www.sherlock.stanford.edu)
 
-This branch of the Sherlock repository contains the source files necessary to build the Sherlock landing webpage at http://www.sherlock.stanford.edu
-It's loosely based on the [Agency](http://startbootstrap.com/template-overviews/agency/) [Bootstrap](http://getbootstrap.com/) template.
+This branch of the Sherlock repository contains the source files necessary to
+build the Sherlock landing webpage at http://www.sherlock.stanford.edu It's
+loosely based on the
+[Agency](http://startbootstrap.com/template-overviews/agency/)
+[Bootstrap](http://getbootstrap.com/) template.
 
 The following steps are only required if a change is needed in the landing page.
 
@@ -55,10 +58,16 @@ $ gulp build
 
 ### Deploying
 
-Deployment should happen automatically when a change is committed on GitHub. Travis CI will take [care](https://github.com/stanford-rc/www.sherlock.stanford.edu/blob/landing/.travis.yml) of the following steps:
+Deployment should happen automatically when a change is committed on GitHub.
+Travis CI will [take
+care](https://github.com/stanford-rc/www.sherlock.stanford.edu/blob/landing/.travis.yml)
+of the following steps:
   * build the landing page from the freshly-committed source files,
   * checkout the `docs` branch
-  * copy the compiled page to the source directory (`src/`) in the `docs` branch
+  * copy the compiled page to the source directory (`src/`) in the `docs`
+    branch
   * commit the changes in the `docs` branch
 
-If everything goes well, the automated Travis CI commit should trigger a new build of the whole documentation, with the updated landing page, and a deployment to the website.
+If everything goes well, the automated Travis CI commit should trigger a new
+build of the whole documentation, with the updated landing page, and a
+deployment to the website.
