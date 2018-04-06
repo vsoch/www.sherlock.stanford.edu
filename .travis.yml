@@ -15,7 +15,7 @@ branches:
 # notify srcc#github
 notifications:
   slack:
-    secure: P6lX6ZJ6s6CMtbcG1jCTZYqVf7QJfYcaZdmtXqd3mm16Iiiaw4/DyqE/knSSEcG0wbVopZI/0UM48UHPSmmTJ6wkKKVlsj7A8qWzn6zT/euMu8c4TDNOCplOcgVj8IRJN+L1K+j9lbxz/c2yEUUjd4BdZwpy8g0fum+oKqZE7P/1AgikkvddccW0nMxN801ZwF0AQw35KgdToWYhPFEyjjOlWfYlW9w2SmwTDnnZSStexCBgrJ3Iq9EorRH4BL1zaeieiDQQHWkXhSaK6MR4QPu7nPVH3AHpGHh5m+3dDRbi4/NT26gHWwgC+CsKUtnyFl44H2vpoVX+CMO0RsVH9tEDwparn5dqytXpC2LqpgD4JYPpdJ5wMQt9FCO9NQKaK/Bqf5H1y7D3O+jqgLrKXzLk5xc6WXAamHSTJlz4V5cEk+JL5vd2lUYyPWrtZZiBagMCWSlN66zIFdSxHdQbjJ303VaJ82XFMPtLgYdJN8OJwb4dfFvpjbZUmW+54thB8Nh7Ghvf4602KbdMsbtdI0QXtQP+nNkLdePyrd6RiWokffWSLxqwzOgI+qEQm8QFeFGUswYn6e5cMwUnpfCyyfexaeO7sOGeRhxNWJmvO3dT3e7NLct0fu1hnzWFExwqhSg6EwQFjMh+jPTDxUWXhf20fDFFIzwr6Jpc29EDvxY=
+    secure: jCnui9VydF+7LKuRWwe6YqKaBgSmjksJaI4ec2LASIgdg6k2FyRreYdse5SnC10cATAuJzMu5J7oQC0QZi6lllUfFQ8BNDoL9hSnPEWzKPMnLKJrMASMx7AxkDqDWhjgVcRDO7nG9tAEonPDSpPouVV3fqelD0HO4Sn/E2KSOUgkUXqIS2lpKnVo0j7kEXV0PybTjtSI0Qy3Xw3DEUTEzywhAFy01OUpkY5pifpX+dX46TnPnsuBs62nvlTfShTGw566UtQ+wH7R80jkYog0iQ5n7bmSBbIWdAMLmMAamcxNS6Rby+qbn19QWFn0SvlAbI6T7RqJTpeREYioRS/KYzqg9xI2CkniXiLxGBERrg55GGnBK/7z68vi5tfzBxUSXbKHNCgOfOAMwsUUOpFqIl0g0a8cGbMVlrq4vz9zHLIYWeI39l6EcEr+b3ONxW6xMw73MQz0Sx64G3OM4uLeToGCmhv2BqwIYfAoghhv1JYmeSFtNlKRGpN9dFWPQFZLN1LIwHe1Qbzv5xf8IsHBPpTuDuChuaACqevMrBdrEqT8exQMT4t1z//EiTd4nWWxrZhULdDZxYARun4uUuAExcNV2aLQMGv1krbkokpTWbw+1jSDeDroBNLrGcNLeBaDIUfgCdr242HgTtMwxWJNLyXi1n6t7OHaRSorNw8n9+g=
 
 
 # ----------------------------------------------------------------------------
