@@ -23,7 +23,6 @@ The general idea is:
 | Software | Installation |
 | --- | --- |
 | [NPM](https://www.npmjs.com/) | `# [apt-get\|yum] install npm` |
-| [Gulp](http://gulpjs.com/) | `# npm install gulp-cli` |
 
 ### Modifying
 
@@ -37,7 +36,7 @@ To modify the source files, you'll need to:
 
 3. start the development server
    ```
-   $ gulp dev
+   $ ./node_modules/.bin/gulp dev
    ```
    This will start a development server at http://127.0.0.1:3000
 
@@ -53,7 +52,7 @@ To update the plugins: `npm update`
 
 Once you're satisifed with the results, you can build the static files with:
 ```
-$ gulp build
+$ ./node_modules/.bin/gulp build
 ```
 
 ### Deploying
