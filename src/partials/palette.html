@@ -20,37 +20,45 @@
   IN THE SOFTWARE.
 -->
 
-<!-- Main navigation -->
-<nav class="md-nav md-nav--primary" data-md-level="0">
+<!-- Primary colors -->
+{% macro primary(key) %}{{ {
+  "red":         "#ef5350",
+  "pink":        "#e91e63",
+  "purple":      "#ab47bc",
+  "deep-purple": "#7e57c2",
+  "indigo":      "#3f51b5",
+  "blue":        "#2196f3",
+  "light-blue":  "#03a9f4",
+  "cyan":        "#00bcd4",
+  "teal":        "#009688",
+  "green":       "#4caf50",
+  "light-green": "#7cb342",
+  "lime":        "#c0ca33",
+  "yellow":      "#f9a825",
+  "amber":       "#ffa000",
+  "orange":      "#fb8c00",
+  "deep-orange": "#ff7043",
+  "brown":       "#795548",
+  "grey":        "#757575",
+  "blue-grey":   "#546e7a"
+}[key] }}{% endmacro %}
 
-  <!-- Site title -->
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
-      {% if config.theme.logo.icon %}
-        <i class="md-icon">{{ config.theme.logo.icon }}</i>
-      {% elif config.theme.logo.startswith("http") %}
-        <img src="{{ config.theme.logo }}" width="48" height="48" />
-      {% else %}
-        <img src="{{ base_url }}/{{ config.theme.logo }}"
-            width="48" height="48" />
-      {% endif %}
-    </span>
-    {{ config.site_name }}
-  </label>
-
-  <!-- Repository containing source -->
-  {% if config.repo_url %}
-    <div class="md-nav__source">
-      {% include "partials/source.html" %}
-    </div>
-  {% endif %}
-
-  <!-- Render item list -->
-  <ul class="md-nav__list" data-md-scrollfix>
-    {% for nav_item in nav %}
-      {% set path = "nav-" + loop.index | string %}
-      {% set level = 1 %}
-      {% include "partials/nav-item.html" %}
-    {% endfor %}
-  </ul>
-</nav>
+<!-- Accent colors -->
+{% macro accent(key) %}{{ {
+  "red":         "#ff1744",
+  "pink":        "#f50057",
+  "purple":      "#e040fb",
+  "deep-purple": "#7c4dff",
+  "indigo":      "#536dfe",
+  "blue":        "#448aff",
+  "light-blue":  "#0091ea",
+  "cyan":        "#00b8d4",
+  "teal":        "#00bfa5",
+  "green":       "#00c853",
+  "light-green": "#64dd17",
+  "lime":        "#aeea00",
+  "yellow":      "#ffd600",
+  "amber":       "#ffab00",
+  "orange":      "#ff9100",
+  "deep-orange": "#ff6e40"
+}[key] }}{% endmacro %}

@@ -37,6 +37,40 @@ pip show mkdocs-material
 
 ## Changelog
 
+### 2.9.2 <small>_ June 29, 2018</small>
+
+* Added Hindi and Czech translations
+
+### 2.9.1 <small>_ June 18, 2018</small>
+
+* Added support for different spellings for theme color
+* Fixed [#799][799]: Added support for web font minification in production
+* Fixed [#800][800]: Added `.highlighttable` as an alias for `.codehilitetable`
+
+  [799]: https://github.com/squidfunk/mkdocs-material/issues/799
+  [800]: https://github.com/squidfunk/mkdocs-material/issues/800
+
+### 2.9.0 <small>_ June 13, 2018</small>
+
+* Added support for theme color on Android
+* Fixed [#796][796]: Rendering of nested tabbed code blocks
+
+  [796]: https://github.com/squidfunk/mkdocs-material/issues/796
+
+### 2.8.0 <small>_ June 10, 2018</small>
+
+* Added support for grouping code blocks with tabs
+* Added Material and FontAwesome icon fonts to distribution files (GDPR)
+* Added note on compliance with GDPR
+* Added Slovak translations
+* Fixed [#790][790]: Prefixed `id` attributes with `__` to avoid name clashes
+
+  [790]: https://github.com/squidfunk/mkdocs-material/issues/790
+
+### 2.7.3 <small>_ April 26, 2018</small>
+
+* Added Finnish translations
+
 ### 2.7.2 <small>_ April 9, 2018</small>
 
 * Fixed rendering issue for `details` on Edge

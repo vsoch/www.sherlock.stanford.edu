@@ -1,3 +1,26 @@
+mkdocs-material-2.9.2 (2018-06-29)
+
+  * Added Hindi and Czech translations
+
+mkdocs-material-2.9.1 (2018-06-18)
+
+  * Added support for different spellings for theme color
+  * Fixed #799: Added support for web font minification in production
+  * Fixed #800: Added .highlighttable as an alias for .codehilitetable
+
+mkdocs-material-2.9.0 (2018-06-13)
+
+  * Added support for theme color on Android
+  * Fixed #796: Rendering of nested tabbed code blocks
+
+mkdocs-material-2.8.0 (2018-06-10)
+
+  * Added support for grouping code blocks with tabs
+  * Added Material and FontAwesome icon fonts to distribution files (GDPR)
+  * Added note on compliance with GDPR
+  * Added Slovak translations
+  * Fixed #790: Prefixed id attributes with "__" to avoid name clashes
+
 mkdocs-material-2.7.3 (2018-04-26)
 
   * Added Finnish translations

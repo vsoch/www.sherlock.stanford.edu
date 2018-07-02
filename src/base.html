@@ -106,6 +106,15 @@
         <link rel="stylesheet" type="text/css"
             href="{{ base_url }}/assets/stylesheets/application-palette.css" />
       {% endif %}
+
+      <!-- Theme-color meta tag for Android -->
+      {% if palette.primary %}
+        {% import "partials/palette.html" as map %}
+        {% set primary = map.primary(
+          palette.primary | replace(" ", "-") | lower
+        ) %}
+        <meta name="theme-color" content="{{ primary }}" />
+      {% endif %}
     {% endblock %}
 
     <!-- JavaScript libraries -->
@@ -135,11 +144,11 @@
           }
         </style>
       {% endif %}
-
-      <!-- Material icons as a default iconset -->
-      <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     {% endblock %}
+
+    <!-- Material icons as iconset -->
+    <link rel="stylesheet" type="text/css"
+        href="{{ base_url }}/assets/fonts/material-icons.css" />
 
     <!-- Custom stylesheets -->
     {% for path in extra_css %}
@@ -185,12 +194,12 @@
       drawer on back button invocation in some browsers
     -->
     <input class="md-toggle" data-md-toggle="drawer"
-        type="checkbox" id="drawer" autocomplete="off" />
+        type="checkbox" id="__drawer" autocomplete="off" />
     <input class="md-toggle" data-md-toggle="search"
-        type="checkbox" id="search" autocomplete="off" />
+        type="checkbox" id="__search" autocomplete="off" />
 
     <!-- Overlay for expanded drawer -->
-    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
 
     <!-- Render "skip to content" link -->
     {% if page.toc | first is defined %}
