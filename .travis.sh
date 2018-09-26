@@ -52,7 +52,7 @@ if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" ]; then
   git remote set-url origin ${REMOTE}
 
   # Install Material, so we can use it as a base template and add overrides
-  python setup.py install --user
+  python setup.py install
 
   # Override theme configuration
   sed -i 's/name: null/name: material/g' mkdocs.yml
@@ -60,6 +60,7 @@ if [ "$TRAVIS_BRANCH" == "master" -a "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
   # Build documentation with overrides and publish to GitHub pages
   mkdocs gh-deploy --force
+  mkdocs --version
 fi
 
 # Remove overrides directory so it won't get included in the image
@@ -69,11 +70,7 @@ rm -rf overrides
 echo "${TRAVIS_BRANCH}" | grep -qvE "^[0-9.]+$" && exit 0; :;
 
 # Install dependencies for release build
-pip install --user wheel twine
-
-# Fix SSL warnings for Python < 2.7.9
-# https://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
-pip install --user urllib3[secure]
+pip install wheel twine
 
 # Build and install theme and Docker image
 python setup.py build sdist bdist_wheel --universal

@@ -4,8 +4,8 @@
 #
 # ----------------------------------------------------------------------------
 
+language: python
 sudo: false
-language: node_js
 
 # we only care about the theme branch
 branches:
@@ -24,8 +24,9 @@ notifications:
 #
 # ----------------------------------------------------------------------------
 
-# Node.js version
-node_js: 8
+# Python, Node.js version and necessary services
+python: "3.6"
+node_js: "8"
 
 # limit clone depth to 5, to speed up build
 git:
@@ -53,7 +54,7 @@ before_install:
 # install dependencies
 install:
   - npm install
-  - pip install --user -r requirements.txt
+  - pip install -r requirements.txt
 
 # build
 script:
