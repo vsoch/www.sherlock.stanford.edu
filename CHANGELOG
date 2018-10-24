@@ -1,3 +1,9 @@
+mkdocs-material-3.0.5 (2018-10-23)
+
+  * Added Croatian and Indonesian translations
+  * Fixed #899: Skip-to-content link invalid from 2nd level on
+  * Fixed #902: Missing URL filter in footer for FontAwesome link
+
 mkdocs-material-3.0.4 (2018-09-03)
 
   * Updated Dutch translations
