@@ -1,3 +1,8 @@
+mkdocs-material-3.0.6 (2018-10-26)
+
+  * Added Taiwanese translations
+  * Fixed #906: JavaScript code blocks evaluated in search results
+
 mkdocs-material-3.0.5 (2018-10-23)
 
   * Added Croatian and Indonesian translations
