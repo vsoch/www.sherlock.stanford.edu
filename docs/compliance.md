@@ -35,11 +35,11 @@ self-hosted so there's no third-party involved.
 
   [2]: getting-started.md#font-family
   [3]: https://github.com/google/fonts/issues/1495
-  [4]: customization.md/#overriding-template-blocks
+  [4]: customization.md#overriding-template-blocks
 
 ### Google Analytics and Disqus
 
-Material comes with [Google Analytics][4] and [Disqus][5] integrations that need
+Material comes with [Google Analytics][5] and [Disqus][6] integrations that need
 to be *enabled explicitly*. Disable both integrations in order to be in
 compliance with the GDPR.
 

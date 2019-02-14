@@ -332,32 +332,38 @@ translations for all template variables and labels in the following languages:
     <tr>
       <td><code>gl</code> / Galician</td>
       <td><code>de</code> / German</td>
+      <td><code>gr</code> / Greek</td>
       <td><code>he</code> / Hebrew</td>
-      <td><code>hi</code> / Hindi</td>
     </tr>
     <tr>
+      <td><code>hi</code> / Hindi</td>
       <td><code>hr</code> / Croatian</td>
       <td><code>hu</code> / Hungarian</td>
       <td><code>id</code> / Indonesian</td>
-      <td><code>it</code> / Italian</td>
     </tr>
     <tr>
+      <td><code>it</code> / Italian</td>
       <td><code>ja</code> / Japanese</td>
       <td><code>kr</code> / Korean</td>
       <td><code>no</code> / Norwegian</td>
-      <td><code>fa</code> / Persian</td>
     </tr>
     <tr>
+      <td><code>fa</code> / Persian</td>
       <td><code>pl</code> / Polish</td>
       <td><code>pt</code> / Portugese</td>
       <td><code>ru</code> / Russian</td>
-      <td><code>sr</code> / Serbian</td>
     </tr>
     <tr>
+      <td><code>sr</code> / Serbian</td>
       <td><code>sh</code> / Serbo-Croatian</td>
       <td><code>sk</code> / Slovak</td>
       <td><code>es</code> / Spanish</td>
+    </tr>
+    <tr>
       <td><code>sv</code> / Swedish</td>
+      <td><code>tr</code> / Turkish</td>
+      <td><code>uk</code> / Ukrainian</td>
+      <td><code>vi</code> / Vietnamese</td>
     </tr>
     <tr>
       <td colspan="2">
@@ -368,15 +374,8 @@ translations for all template variables and labels in the following languages:
       </td>
     </tr>
     <tr>
-      <td colspan="2">
-        <code>zh-TW</code> / Chinese (Taiwanese)
-      </td>
-      <td><code>tr</code> / Turkish</td>
-      <td><code>uk</code> / Ukrainian</td>
-    </tr>
-    <tr>
-      <td><code>vi</code> / Vietnamese</td>
-      <td colspan="3" align="right">
+      <td colspan="2"><code>zh-TW</code> / Chinese (Taiwanese)</td>
+      <td colspan="2" align="right">
         <a href="http://bit.ly/2EbzFc8">Submit a new language</a>
       </td>
     </tr>
@@ -511,16 +510,25 @@ theme:
 
 > Default: `false`
 
-Material supports another layer on top of the main navigation for larger
-screens in the form of tabs. This is especially useful for larger documentation
-projects with only few top-level sections. Tabs can be enabled by setting the
-respective feature flag to true:
+By default, the entire navigation is rendered on the left side using collapsible
+sections (different from the default MkDocs theme which renders the top-level
+sections in the header), because horizontal navigation is often problematic on
+smaller screens. However, for large documentation projects it's sometimes
+desirable to add another navigation layer to separate top-level sections.
+Material achieves this with the tabs feature, which can be enabled by setting
+the respective feature flag to `true`:
 
 ``` yaml
 theme:
   feature:
     tabs: true
 ```
+
+When tabs are enabled, *top-level sections* will be rendered in an additional
+layer directly below the header. The navigation on the left side will only
+include the pages contained within the selected section. Furthermore, *top-level
+pages* defined inside your project's `mkdocs.yml` will be grouped under the
+first tab which will receive the title of the first page.
 
 ## Customization
 
